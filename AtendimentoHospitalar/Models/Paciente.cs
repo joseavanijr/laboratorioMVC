@@ -27,6 +27,11 @@ namespace AtendimentoHospitalar.Models
         [DisplayName("Cidade")]
         public Cidade ObjCidade { get; set; }
 
+        public Paciente()
+        {
+            ObjCidade = new Cidade();
+            ObjPlanoDeSaude = new PlanoDeSaude();
+        }
         public void Save()
         {
             PacienteRepository pr = new PacienteRepository();
@@ -55,9 +60,9 @@ namespace AtendimentoHospitalar.Models
         {
             return new PacienteRepository().BuscarPorNome(nome);
         }
-        public IList<Paciente> Buscar(PlanoDeSaude plano)
+        public IList<Paciente> BuscarPorPlano(int planoId)
         {
-            return new PacienteRepository().BuscarPorPlano(plano);
+            return new PacienteRepository().BuscarPorPlano(planoId);
         }
         public IList<Paciente> Buscar()
         {

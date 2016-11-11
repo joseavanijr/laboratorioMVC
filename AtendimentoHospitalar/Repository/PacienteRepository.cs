@@ -112,14 +112,14 @@ namespace AtendimentoHospitalar.Repository
             return listaPaciente;
         }
 
-        public IList<Paciente> BuscarPorPlano(PlanoDeSaude plano)
+        public IList<Paciente> BuscarPorPlano(int planoId)
         {
             IList<Paciente> listaPaciente = new List<Paciente>();
 
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
             comando.CommandText = "SELECT * FROM Paciente WHERE planoDeSaudeId=@planoDeSaudeId";
-            comando.Parameters.AddWithValue("@planoDeSaudeId", plano.Id);
+            comando.Parameters.AddWithValue("@planoDeSaudeId", planoId);
 
             SqlDataReader dr = Conexao.Selecionar(comando);
 
@@ -134,6 +134,7 @@ namespace AtendimentoHospitalar.Repository
                     paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
                     paciente.ObjCidade = new CidadeRepository().Buscar(Convert.ToInt32(dr["cidadeId"]));
+                    paciente.ObjPlanoDeSaude = new PlanoSaudeRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
 
                     listaPaciente.Add(paciente);
                 }

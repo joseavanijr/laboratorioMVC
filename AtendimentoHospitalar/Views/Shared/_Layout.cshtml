@@ -21,8 +21,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Pacientes", "Listar", "Paciente")</li>
-                    <li>@Html.ActionLink("Pacientes por Plano", "ListarPorPlano", "Paciente")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paciente <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Lista Todos", "Listar", "Paciente")</li>
+                            <li>@Html.ActionLink("Busca por Plano", "ListarPorPlano", "Paciente")</li>
+                        </ul>
+                    </li>                    
                     <li>@Html.ActionLink("Cidades", "Listar", "Cidade")</li>
                 </ul>
             </div>

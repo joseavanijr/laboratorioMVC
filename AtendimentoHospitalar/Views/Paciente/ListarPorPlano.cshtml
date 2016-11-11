@@ -17,9 +17,9 @@
     
     <script>
         $("#ObjPlanoDeSaude_Id").on("change", function () {
-            var estadoView = $(this).val();
+            var planoIdView = $(this).val();
 
-            $("#pacientes").load('@Url.Action("ListarPorEstado", "Cidade")', { estado: estadoView });
+            $("#pacientes").load('@Url.Action("ListarPorPlanoResult", "Paciente")', { planoId: planoIdView });
 
         });
     </script>

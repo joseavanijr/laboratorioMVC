@@ -1,0 +1,26 @@
+﻿@model AtendimentoHospitalar.Models.Paciente
+
+@{
+    ViewBag.Title = "Cidades";
+}
+
+<h2>Lista de Cidades</h2>
+
+@Html.LabelFor(model => model.ObjPlanoDeSaude)
+@Html.DropDownListFor(model => model.ObjPlanoDeSaude.Id, ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })
+
+<div class="row" id="pacientes">
+
+</div>
+
+@section Scripts {
+    
+    <script>
+        $("#ObjPlanoDeSaude_Id").on("change", function () {
+            var estadoView = $(this).val();
+
+            $("#pacientes").load('@Url.Action("ListarPorEstado", "Cidade")', { estado: estadoView });
+
+        });
+    </script>
+}

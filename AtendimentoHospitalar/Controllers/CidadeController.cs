@@ -58,16 +58,17 @@ namespace AtendimentoHospitalar.Controllers
         }
 
         #region Usando PARTVIEW
+        //Faço com Cidade e Estado e os alunos com Plano e Paciente
         public ActionResult ListarComFiltroPorEstado()
         {
             return View();
         }
-
         public ActionResult ListarPorEstado(Estado estado)
         {
             IList<Cidade> cidades = new Cidade().Buscar(estado);
             return PartialView("_ListarCidades", cidades);
         }
+
         public ActionResult ListarPorEstadoPraCliente(Estado estado)
         {
             IList<Cidade> cidades = new Cidade().Buscar(estado);

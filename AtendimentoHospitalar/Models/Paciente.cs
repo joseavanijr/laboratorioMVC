@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using AtendimentoHospitalar.Repository;
 
 namespace AtendimentoHospitalar.Models
 {
@@ -25,5 +26,51 @@ namespace AtendimentoHospitalar.Models
 
         [DisplayName("Cidade")]
         public Cidade ObjCidade { get; set; }
+
+        public void Save()
+        {
+            PacienteRepository pr = new PacienteRepository();
+            ValidarGravacao();
+            if (Id == 0)
+            {
+                pr.Inserir(this);
+            }
+            else
+            {
+                pr.Update(this);
+            }
+        }
+
+        public void Delete()
+        {
+            ValidarExclusao();
+            new PacienteRepository().Delete(this);
+        }
+
+        public Paciente Buscar(int id)
+        {
+            return new PacienteRepository().BuscarPorId(id);
+        }
+        public IList<Paciente> Buscar(string nome)
+        {
+            return new PacienteRepository().BuscarPorNome(nome);
+        }
+        public IList<Paciente> Buscar(PlanoDeSaude plano)
+        {
+            return new PacienteRepository().BuscarPorPlano(plano);
+        }
+        public IList<Paciente> Buscar()
+        {
+            return new PacienteRepository().BuscarTodos();
+        }
+        public void ValidarExclusao()
+        {
+            throw new Exception("Vou ver pq num exclui");
+        }
+        public void ValidarGravacao()
+        {
+            if (ObjPlanoDeSaude.Id == 0)
+                throw new Exception("Informe o plano de saúde");
+        }
     }
 }

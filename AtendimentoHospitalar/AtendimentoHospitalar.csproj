@@ -136,6 +136,8 @@
     <Content Include="Views\Cidade\Novo.cshtml" />
     <Content Include="Views\Cidade\_ListarCidades.cshtml" />
     <Content Include="Views\Cidade\_ListarCidadesNoCLiente.cshtml" />
+    <Content Include="Views\Paciente\ListarPorPlano.cshtml" />
+    <Content Include="Views\Paciente\_ListarPacientes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

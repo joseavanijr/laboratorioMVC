@@ -50,5 +50,10 @@ namespace AtendimentoHospitalar.Controllers
             pacienteRepository.Update(paciente);
             return RedirectToAction("Listar");
         }
+        public ActionResult ListarPorPlano(PlanoDeSaude plano)
+        {
+            IList<Paciente> planos = new Paciente().Buscar(plano);
+            return PartialView("_ListarPacientes", planos);
+        }
     }
 }

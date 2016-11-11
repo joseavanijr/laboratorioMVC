@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AtendimentoHospitalar.Models.Cidade>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<p>
+    @Html.ActionLink("Criar um Novo", "Novo", new{@class="btn"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+            <th></th>
+        </tr>
+    </thead>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+                
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.CidadeId },new {@class="btn"}) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.CidadeId })
+            </td>
+        </tr>
+    }
+
+</table>

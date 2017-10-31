@@ -9,18 +9,28 @@
 @Html.LabelFor(model => model.Estado)
 @Html.EnumDropDownListFor(model => model.Estado,"Selecione...", new{@class="form-control"})
 
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="row" id="cidadeEstado">
 
 </div>
 
-@section Scripts {
+@section scripts {
     
     <script>
         $("#Estado").on("change", function() {
             var estadoView = $(this).val();
-
             $("#cidadeEstado").load('@Url.Action("ListarPorEstado", "Cidade")', { estado: estadoView });
-
         });
     </script>
 }

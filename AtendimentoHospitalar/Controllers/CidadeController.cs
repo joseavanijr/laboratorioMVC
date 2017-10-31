@@ -63,6 +63,15 @@ namespace AtendimentoHospitalar.Controllers
         {
             return View();
         }
+
+
+
+
+
+
+
+
+
         public ActionResult ListarPorEstado(Estado estado)
         {
             IList<Cidade> cidades = new Cidade().Buscar(estado);

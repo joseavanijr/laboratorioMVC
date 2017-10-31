@@ -43,6 +43,7 @@
             <div class="col-md-10">
                 <div class="input-group col-md-4">
                     @Html.HiddenFor(model => model.ObjCidade.CidadeId)
+                    @*@Html.TextBoxFor(model => model.ObjCidade.Estado, new { @class = "control-label col-md-4",@id="est"})*@
                     @Html.TextBoxFor(model => model.ObjCidade.Nome, new { @class = "form-control" })
                     <span class="input-group-btn">
                         <a href="#" id="btnBuscarCidade" class="btn btn-default" data-toggle="modal" data-target="#myModal">
@@ -97,6 +98,7 @@
         $("#cidadeEstado").on("click", "td a", function () {
             $("#ObjCidade_CidadeId").val($(this).attr("id"));
             $("#ObjCidade_Nome").val($(this).attr("data-value"));
+            //$("#est").val($(this).attr("data-value"));
             $("#myModal").modal("hide");
         });
     </script>

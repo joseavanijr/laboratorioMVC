@@ -7,19 +7,16 @@ namespace AtendimentoHospitalar.Controllers
 {
     public class PacienteController : Controller
     {
-        private readonly PacienteRepository pacienteRepository = new PacienteRepository();
-        private readonly PlanoSaudeRepository planoRepository = new PlanoSaudeRepository();
-
         public ActionResult Listar()
         {
-            IList<Paciente> listaPacientes = pacienteRepository.BuscarTodos();
+            IList<Paciente> listaPacientes = new Paciente().Buscar();
 
             return View(listaPacientes);
         }
 
         public ActionResult Novo()
         {
-            ViewBag.PlanoId = new SelectList(planoRepository.BuscarTodos(), "Id", "Descricao");
+            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
             return View();
         }
 
@@ -34,26 +31,26 @@ namespace AtendimentoHospitalar.Controllers
         [HttpPost]
         public ActionResult Novo(Paciente paciente)
         {      
-            pacienteRepository.Inserir(paciente);
+            paciente.Save();
             return RedirectToAction("Listar");
         }
 
         public ActionResult Editar(int id)
         {
-            ViewBag.PlanoId = new SelectList(planoRepository.BuscarTodos(), "Id", "Descricao");
-            Paciente p = pacienteRepository.BuscarPorId(id);
+            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
+            Paciente p = new Paciente().Buscar(id);
             return View(p);
         }
         [HttpPost]
         public ActionResult Editar(Paciente paciente)
         {
-            pacienteRepository.Update(paciente);
+            paciente.Save();
             return RedirectToAction("Listar");
         }
 
         public ActionResult ListarPorPlano()
         {
-            ViewBag.PlanoId = new SelectList(planoRepository.BuscarTodos(), "Id", "Descricao");
+            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
             return View();
         }
         public ActionResult ListarPorPlanoResult(int planoId)

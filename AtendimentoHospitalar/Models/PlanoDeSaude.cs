@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using AtendimentoHospitalar.Repository;
 
 namespace AtendimentoHospitalar.Models
 {
@@ -12,5 +13,10 @@ namespace AtendimentoHospitalar.Models
         
         [Required]
         public string Descricao { get; set; }
+
+        public IList<PlanoDeSaude> Buscar()
+        {
+            return new PlanoSaudeRepository().BuscarTodos();
+        } 
     }
 }

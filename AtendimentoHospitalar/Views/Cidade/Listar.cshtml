@@ -7,7 +7,7 @@
 <h2>Listar</h2>
 
 <p>
-    @Html.ActionLink("Criar um Novo", "Novo", new{@class="btn"})
+    @Html.ActionLink("Criar um Novo", "Novo",null, new { @class = "btn btn-success btn-sm" })
 </p>
 <table class="table">
     <thead>
@@ -23,6 +23,7 @@
 
     @foreach (var item in Model)
     {
+    <tbody>
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
@@ -30,12 +31,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
-                
+
             <td>
-                @Html.ActionLink("Editar", "Editar", new { id = item.CidadeId },new {@class="btn"}) |
-                @Html.ActionLink("Excluir", "Excluir", new { id = item.CidadeId })
+                @Html.ActionLink("Editar", "Editar", new { id = item.CidadeId }, new { @class = "btn btn-warning btn-sm" })
+                @Html.ActionLink("Excluir", "Excluir",new { id = item.CidadeId }, new { @class = "btn btn-danger btn-sm" })
             </td>
         </tr>
+    </tbody>
     }
 
 </table>

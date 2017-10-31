@@ -60,7 +60,8 @@ namespace AtendimentoHospitalar.Repository
 
                 objCidade.CidadeId = Convert.ToInt32(dr["cidadeId"]);
                 objCidade.Nome = dr["nome"].ToString();
-                objCidade.Estado =(Estado)Enum.Parse((typeof(Estado)), dr["estado"].ToString());
+                //objCidade.Estado =(Estado)Enum.Parse((typeof(Estado)), dr["estado"].ToString());
+                objCidade.Estado = (Estado)dr["estado"];
             }
             else
             {
@@ -123,7 +124,7 @@ namespace AtendimentoHospitalar.Repository
                     Cidade objCidade = new Cidade();
                     objCidade.CidadeId = Convert.ToInt32(dr["cidadeID"]);
                     objCidade.Nome = dr["nome"].ToString();
-                    objCidade.Estado = (Estado)Enum.Parse((typeof(Estado)), dr["estado"].ToString());
+                    objCidade.Estado = (Estado) dr["estado"];
 
                     listaCidade.Add(objCidade);
                 }

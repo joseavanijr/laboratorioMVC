@@ -9,7 +9,7 @@ namespace AtendimentoHospitalar.Controllers
     {
         public ActionResult Listar()
         {
-            IList<Paciente> listaPacientes = new Paciente().Buscar();
+            IList<Paciente> listaPacientes = new Paciente().FindAll();
 
             return View(listaPacientes);
         }
@@ -38,7 +38,7 @@ namespace AtendimentoHospitalar.Controllers
         public ActionResult Editar(int id)
         {
             ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
-            Paciente p = new Paciente().Buscar(id);
+            Paciente p = new Paciente().FindById(id);
             return View(p);
         }
         [HttpPost]
@@ -55,8 +55,14 @@ namespace AtendimentoHospitalar.Controllers
         }
         public ActionResult ListarPorPlanoResult(int planoId)
         {
-            IList<Paciente> planos = new Paciente().BuscarPorPlano(planoId);
+            IList<Paciente> planos = new Paciente().FindByPlano(planoId);
             return PartialView("_ListarPacientes", planos);
+        }
+
+        public ActionResult ListarPorNome(string nome)
+        {
+            ViewBag.PlanoId = new SelectList(new Paciente().FindByName(nome), "Id", "Descricao");
+            return View();
         }
     }
 }

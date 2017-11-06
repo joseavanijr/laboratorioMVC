@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -52,19 +53,19 @@ namespace AtendimentoHospitalar.Models
             new PacienteRepository().Delete(this);
         }
 
-        public Paciente Buscar(int id)
+        public Paciente FindById(int id)
         {
             return new PacienteRepository().BuscarPorId(id);
         }
-        public IList<Paciente> Buscar(string nome)
+        public IList<Paciente> FindByName(string nome)
         {
             return new PacienteRepository().BuscarPorNome(nome);
         }
-        public IList<Paciente> BuscarPorPlano(int planoId)
+        public IList<Paciente> FindByPlano(int planoId)
         {
             return new PacienteRepository().BuscarPorPlano(planoId);
         }
-        public IList<Paciente> Buscar()
+        public IList<Paciente> FindAll()
         {
             return new PacienteRepository().BuscarTodos();
         }

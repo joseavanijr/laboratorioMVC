@@ -1,19 +1,24 @@
 ﻿@model AtendimentoHospitalar.Models.Paciente
-
 @{
-    ViewBag.Title = "Cidades";
+    ViewBag.Title = "Pacientes";
 }
 
-<h2>Lista de Cidades</h2>
-<div class="input-group col-md-4">
-    @Html.LabelFor(model => model.Nome)
-    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
-    <span class="input-group-btn">
-        <a href="#" id="btnBuscarPaciente" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-            <i class="glyphicon glyphicon-search"></i>
-        </a>
-    </span>
+<h2>Busca de Pacientes</h2>
+<div class="form-inline">
+    <div class="col-md-3">
+        @Html.ActionLink(" ", "Novo", null, new { @class = "btn btn-success btn-lg glyphicon glyphicon-plus" })
+    </div>
+    <div class="form-group col-md-9 text-right">
+        @Html.LabelFor(model => model.Nome)
+        <div class="input-group col-md-4">
+            @Html.TextBoxFor(model => model.Nome, new {@class = "form-control"})
+                <a href="#" id="btnBuscarPaciente" class="btn btn-default input-group-addon" data-toggle="modal" data-target="#myModal">
+                    <i class="glyphicon glyphicon-search"></i>
+                </a>
+        </div>
+    </div>
 </div>
+
 <div class="row" id="pacientes">
 
 </div>

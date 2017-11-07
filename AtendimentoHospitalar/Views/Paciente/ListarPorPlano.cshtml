@@ -1,20 +1,28 @@
 ﻿@model AtendimentoHospitalar.Models.Paciente
 
 @{
-    ViewBag.Title = "Cidades";
+    ViewBag.Title = "Pacientes";
 }
 
-<h2>Lista de Cidades</h2>
+<h2>Busca de Pacientes</h2>
+<div class="form-inline">
+    <div class="col-md-3">
+        @Html.ActionLink(" ", "Novo", null, new { @class = "btn btn-success btn-lg glyphicon glyphicon-plus" })
+    </div>
+    <div class="col-md-9 text-right">
+        @Html.LabelFor(model => model.ObjPlanoDeSaude)
+        @Html.DropDownListFor(model => model.ObjPlanoDeSaude.Id, ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })
+    </div>
+</div>
 
-@Html.LabelFor(model => model.ObjPlanoDeSaude)
-@Html.DropDownListFor(model => model.ObjPlanoDeSaude.Id, ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })
+@*@Html.DropDownList("ASDasd", ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
 
 <div class="row" id="pacientes">
 
 </div>
 
 @section Scripts {
-    
+
     <script>
         $("#ObjPlanoDeSaude_Id").on("change", function () {
             var planoIdView = $(this).val();

@@ -14,7 +14,7 @@ namespace AtendimentoHospitalar.Repository
         {
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "INSERT INTO Paciente(nome, dtNascimento, tipoConveniado, planoDeSaudeId, cidadeId) VALUES(@nome, @dtNascimento, @tipoConveniado, @planoDeSaudeId, cidadeId)";
+            comando.CommandText = "INSERT INTO Paciente(nome, dtNascimento, tipoConveniado, planoDeSaudeId, cidadeId) VALUES(@nome, @dtNascimento, @tipoConveniado, @planoDeSaudeId, @cidadeId)";
 
             comando.Parameters.AddWithValue("@nome",paciente.Nome);
             comando.Parameters.AddWithValue("@dtNascimento",paciente.DataNascimento);

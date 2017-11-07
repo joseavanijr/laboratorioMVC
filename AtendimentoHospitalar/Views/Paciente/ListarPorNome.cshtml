@@ -1,0 +1,31 @@
+﻿@model AtendimentoHospitalar.Models.Paciente
+
+@{
+    ViewBag.Title = "Cidades";
+}
+
+<h2>Lista de Cidades</h2>
+<div class="input-group col-md-4">
+    @Html.LabelFor(model => model.Nome)
+    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+    <span class="input-group-btn">
+        <a href="#" id="btnBuscarPaciente" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+            <i class="glyphicon glyphicon-search"></i>
+        </a>
+    </span>
+</div>
+<div class="row" id="pacientes">
+
+</div>
+
+@section Scripts {
+
+    <script>
+        $("#btnBuscarPaciente").on("click", function () {
+            var nomePaciente = $("#Nome").val();
+
+            $("#pacientes").load('@Url.Action("ListarPorNomeResult", "Paciente")', { nome: nomePaciente });
+
+        });
+    </script>
+}

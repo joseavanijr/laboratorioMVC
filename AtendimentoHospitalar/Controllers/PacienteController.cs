@@ -55,14 +55,18 @@ namespace AtendimentoHospitalar.Controllers
         }
         public ActionResult ListarPorPlanoResult(int planoId)
         {
-            IList<Paciente> planos = new Paciente().FindByPlano(planoId);
-            return PartialView("_ListarPacientes", planos);
+            IList<Paciente> pacientes = new Paciente().FindByPlano(planoId);
+            return PartialView("_ListarPacientes", pacientes);
         }
 
         public ActionResult ListarPorNome(string nome)
         {
-            ViewBag.PlanoId = new SelectList(new Paciente().FindByName(nome), "Id", "Descricao");
             return View();
+        }
+        public ActionResult ListarPorNomeResult(string nome)
+        {
+            IList<Paciente> planos = new Paciente().FindByName(nome);
+            return PartialView("_ListarPacientes", planos);
         }
     }
 }

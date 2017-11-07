@@ -6,3 +6,7 @@ AtendimentoHospitalar/bin/
 \.vs/config/
 
 AtendimentoHospitalar/obj/Debug/
+
+\.vs/AtendimentoHospitalar/v14/\.suo
+
+*.csproj

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AtendimentoHospitalar.Models.Paciente>
+@{
+    ViewBag.Title = "Pacientes";
+}
+
+<h2>Listar Pacientes</h2>
+<div>
+    <div>
+        @Html.ActionLink(" ", "Novo", null, new { @class = "btn btn-success btn-lg glyphicon glyphicon-plus" })
+    </div>
+</div>
+
+<table class="table table-hover table-responsive">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnumTipoConveniado)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.DataNascimento)</th>
+            <th>@Html.DisplayNameFor(q => q.ObjPlanoDeSaude)</th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(h => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(d => item.EnumTipoConveniado)
+            </td>
+            <td>
+                @Html.DisplayFor(c => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.ObjPlanoDeSaude.Descricao)
+            </td>
+            <td>
+                <a class="btn btn-default btn-sm" href="@Url.Action("Editar", "Paciente", new { item.Id })"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a class="btn btn-default btn-sm" href="@Url.Action("Delete", "Paciente", new { item.Id })"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+    }
+</table>

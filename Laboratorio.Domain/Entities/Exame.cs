@@ -7,5 +7,6 @@ namespace Laboratorio.Domain.Entities
 {
     public class Exame
     {
+        public Guid ExameId { get; set; }
     }
 }

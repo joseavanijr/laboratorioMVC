@@ -9,7 +9,7 @@ namespace Laboratorio.Infra.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Laboratorio.Infra.Data.Contexto.LaboratorioContexto context)

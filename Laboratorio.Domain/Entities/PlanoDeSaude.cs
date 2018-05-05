@@ -5,13 +5,17 @@ namespace Laboratorio.Domain.Entities
 {
     public class PlanoDeSaude
     {
-        public Guid PlanoDeSaudeId { get; set; }
-        
-        public string Descricao { get; set; }
-
         public PlanoDeSaude()
         {
             PlanoDeSaudeId = new Guid();
+            ListPacientes = new List<Paciente>();
         }
+
+        public Guid PlanoDeSaudeId { get; set; }
+
+        public string Descricao { get; set; }
+        public virtual ICollection<Paciente> ListPacientes { get; set; }
+
+
     }
 }

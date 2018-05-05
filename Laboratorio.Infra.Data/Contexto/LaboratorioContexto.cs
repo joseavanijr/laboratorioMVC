@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using Laboratorio.Domain.Entities;
+using Laboratorio.Infra.Data.EntityConfig;
 
 namespace Laboratorio.Infra.Data.Contexto
 {
@@ -33,6 +34,9 @@ namespace Laboratorio.Infra.Data.Contexto
 
             modelBuilder.Properties<string>()
                 .Configure(p=>p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new PlanoDeSaudeConfiguration());
+            modelBuilder.Configurations.Add(new PacienteConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

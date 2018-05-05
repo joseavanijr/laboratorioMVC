@@ -12,17 +12,19 @@ namespace Laboratorio.Domain.Entities
 
         public DateTime DataNascimento { get; set; }
 
-        public PlanoDeSaude ObjPlanoDeSaude { get; set; }
+        public Guid PlanoDeSaudeId { get; set; }
+        public PlanoDeSaude PlanoDeSaude { get; set; }
 
         public TipoConveniado EnumTipoConveniado { get; set; }
 
-        public Cidade ObjCidade { get; set; }
+        public Guid CidadeId { get; set; }
+        public Cidade Cidade { get; set; }
 
         public Paciente()
         {
             PacienteId = new Guid();
-            ObjCidade = new Cidade();
-            ObjPlanoDeSaude = new PlanoDeSaude();
+            Cidade = new Cidade();
+            PlanoDeSaude = new PlanoDeSaude();
         }
         
     }

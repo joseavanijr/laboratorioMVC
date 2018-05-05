@@ -5,7 +5,17 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtendimentoHospitalar", "AtendimentoHospitalar\AtendimentoHospitalar.csproj", "{23E33997-AB27-43F4-B9BD-EB59AA229C0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{988100FB-A607-4283-8A1F-0E5E8DCEBA5F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Presentation", "01 - Presentation", "{ABE0A6FC-46BD-4409-A7E8-08902F7566C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Domain", "02 - Domain", "{8884E590-16B9-4FF2-A1B5-66A89C9BAE41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Infra", "03 - Infra", "{0F3346C8-FC1B-40BC-A4B7-AB7A116D5554}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00 - Legado", "00 - Legado", "{BE918D38-86C0-47AB-93EA-990902650421}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{70E9766E-7E76-412E-ACD4-ECBF59D2270C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laboratorio.Domain", "Laboratorio.Domain\Laboratorio.Domain.csproj", "{461FA170-F0BB-4732-ACF7-37B23D76C6A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +27,17 @@ Global
 		{23E33997-AB27-43F4-B9BD-EB59AA229C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23E33997-AB27-43F4-B9BD-EB59AA229C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23E33997-AB27-43F4-B9BD-EB59AA229C0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{988100FB-A607-4283-8A1F-0E5E8DCEBA5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{988100FB-A607-4283-8A1F-0E5E8DCEBA5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{988100FB-A607-4283-8A1F-0E5E8DCEBA5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{988100FB-A607-4283-8A1F-0E5E8DCEBA5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461FA170-F0BB-4732-ACF7-37B23D76C6A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461FA170-F0BB-4732-ACF7-37B23D76C6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461FA170-F0BB-4732-ACF7-37B23D76C6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461FA170-F0BB-4732-ACF7-37B23D76C6A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23E33997-AB27-43F4-B9BD-EB59AA229C0C} = {BE918D38-86C0-47AB-93EA-990902650421}
+		{70E9766E-7E76-412E-ACD4-ECBF59D2270C} = {0F3346C8-FC1B-40BC-A4B7-AB7A116D5554}
+		{461FA170-F0BB-4732-ACF7-37B23D76C6A4} = {8884E590-16B9-4FF2-A1B5-66A89C9BAE41}
 	EndGlobalSection
 EndGlobal

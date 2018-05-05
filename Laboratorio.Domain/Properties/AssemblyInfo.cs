@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dominio")]
+[assembly: AssemblyTitle("Laboratorio.Domain")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Dominio")]
+[assembly: AssemblyProduct("Laboratorio.Domain")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("988100fb-a607-4283-8a1f-0e5e8dceba5f")]
+[assembly: Guid("461fa170-f0bb-4732-acf7-37b23d76c6a4")]
 
 // Version information for an assembly consists of the following four values:
 //

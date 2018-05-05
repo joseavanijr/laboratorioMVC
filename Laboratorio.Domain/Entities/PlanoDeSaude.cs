@@ -5,10 +5,8 @@ namespace Laboratorio.Domain.Entities
 {
     public class PlanoDeSaude
     {
-        public int Id { get; set; }
+        public Guid PlanoDeSaudeId { get; set; }
         
         public string Descricao { get; set; }
-
-       
     }
 }

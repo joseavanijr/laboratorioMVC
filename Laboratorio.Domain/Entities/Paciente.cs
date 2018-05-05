@@ -20,6 +20,7 @@ namespace Laboratorio.Domain.Entities
 
         public Paciente()
         {
+            PacienteId = new Guid();
             ObjCidade = new Cidade();
             ObjPlanoDeSaude = new PlanoDeSaude();
         }

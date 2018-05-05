@@ -8,5 +8,10 @@ namespace Laboratorio.Domain.Entities
         public Guid PlanoDeSaudeId { get; set; }
         
         public string Descricao { get; set; }
+
+        public PlanoDeSaude()
+        {
+            PlanoDeSaudeId = new Guid();
+        }
     }
 }

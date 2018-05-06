@@ -37,9 +37,11 @@ namespace AtendimentoHospitalar.Contexto
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));
 
+            modelBuilder.Configurations.Add(new AtendimentoConfiguration());
+            modelBuilder.Configurations.Add(new CidadeConfiguration());
             modelBuilder.Configurations.Add(new PlanoDeSaudeConfiguration());
             modelBuilder.Configurations.Add(new PacienteConfiguration());
-            modelBuilder.Configurations.Add(new AtendimentoConfiguration());
+            
             modelBuilder.Configurations.Add(new ExamesDoAtendimentoConfiguration());
 
             base.OnModelCreating(modelBuilder);

@@ -106,6 +106,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contexto\AtendimentoHospitalarContexto.cs" />
     <Compile Include="EntityConfig\AtendimentoConfiguration.cs" />
+    <Compile Include="EntityConfig\CidadeConfiguration.cs" />
     <Compile Include="EntityConfig\ExamesDoAtendimentoConfiguration.cs" />
     <Compile Include="EntityConfig\PacienteConfiguration.cs" />
     <Compile Include="EntityConfig\PlanoDeSaudeConfiguration.cs" />

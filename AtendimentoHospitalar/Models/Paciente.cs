@@ -73,7 +73,7 @@ namespace AtendimentoHospitalar.Models
         }
         public void ValidarGravacao()
         {
-            if (PlanoDeSaude.Id == 0)
+            if (PlanoDeSaude.PlanoDeSaudeId == null)
                 throw new Exception("Informe o plano de saúde");
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace AtendimentoHospitalar.EntityConfig
         {
             ToTable("ExamesDosAtendimentos");
             HasKey(ea => ea.ExamesDoAtendimentoId);
+            Property(p => p.ExamesDoAtendimentoId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(ea => ea.Data)
                 .IsRequired();
             Property(ea => ea.Status)

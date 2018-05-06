@@ -1,4 +1,5 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.ModelConfiguration;
 using AtendimentoHospitalar.Models;
 
 namespace AtendimentoHospitalar.EntityConfig
@@ -9,6 +10,7 @@ namespace AtendimentoHospitalar.EntityConfig
         {
             ToTable("Cidades");
             HasKey(c => c.CidadeId);
+            Property(p => p.CidadeId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(c => c.Estado)
                 .IsRequired();
             Property(c => c.Nome)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace AtendimentoHospitalar.EntityConfig
         {
             ToTable("PlanosDeSaude");
             HasKey(p => p.PlanoDeSaudeId);
+            Property(p => p.PlanoDeSaudeId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p => p.Descricao)
                 .HasMaxLength(50)
                 .IsRequired();

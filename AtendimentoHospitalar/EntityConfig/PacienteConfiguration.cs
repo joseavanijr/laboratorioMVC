@@ -19,7 +19,6 @@ namespace AtendimentoHospitalar.EntityConfig
             //HasKey(c => new { c.PacienteId, c.DataNascimento});
             HasKey(p => p.PacienteId);
             Property(p=> p.Nome)
-                .HasColumnType("varchar")
                 .HasMaxLength(20);
             Property(p => p.EnumTipoConveniado)
                 .HasColumnName("tipoConveniado")

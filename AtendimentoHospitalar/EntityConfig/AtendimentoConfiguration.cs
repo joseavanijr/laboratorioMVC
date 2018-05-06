@@ -17,7 +17,6 @@ namespace AtendimentoHospitalar.EntityConfig
                 .IsRequired();
             Property(a => a.Status)
                 .HasMaxLength(15)
-                .HasColumnType("varchar")
                 .IsRequired();
             Ignore(a=>a.ValorTotal);
 

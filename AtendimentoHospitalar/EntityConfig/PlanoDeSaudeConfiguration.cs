@@ -16,8 +16,7 @@ namespace AtendimentoHospitalar.EntityConfig
             HasKey(p => p.PlanoDeSaudeId);
             Property(p => p.Descricao)
                 .HasMaxLength(50)
-                .IsRequired()
-                .HasColumnType("varchar");
+                .IsRequired();
             
         }
     }

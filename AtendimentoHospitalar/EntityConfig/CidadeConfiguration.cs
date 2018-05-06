@@ -13,8 +13,7 @@ namespace AtendimentoHospitalar.EntityConfig
                 .IsRequired();
             Property(c => c.Nome)
                 .IsRequired()
-                .HasMaxLength(60)
-                .HasColumnType("varchar");
+                .HasMaxLength(60);
         }
     }
 }

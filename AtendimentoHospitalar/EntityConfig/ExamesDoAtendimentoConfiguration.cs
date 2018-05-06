@@ -17,8 +17,7 @@ namespace AtendimentoHospitalar.EntityConfig
                 .IsRequired();
             Property(ea => ea.Status)
                 .IsRequired()
-                .HasMaxLength(15)
-                .HasColumnType("varchar");
+                .HasMaxLength(15);
             HasRequired(ea => ea.Atendimento)
                 .WithMany(a => a.ListExamesDoAtendimentos)
                 .HasForeignKey(ea => ea.AtendimentoId);

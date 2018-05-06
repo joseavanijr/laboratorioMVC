@@ -32,7 +32,7 @@ namespace AtendimentoHospitalar.Contexto
                 .Configure(p => p.IsKey());
 
             modelBuilder.Properties<string>()
-                .Configure(p => p.HasColumnType("varchar"));
+                .Configure(p => p.HasColumnType("nvarchar"));
 
             modelBuilder.Properties<string>()
                 .Configure(p => p.HasMaxLength(100));

@@ -13,6 +13,9 @@ namespace Laboratorio.Domain.Entities
             ListExamesDoAtendimentos = new List<ExamesDoAtendimento>();
         }
         public Guid AtendimentoId { get; set; }
+        public DateTime Data { get; set; }
+        public string Status { get; set; }
+        public decimal ValorTotal { get; set; }
         public ICollection<ExamesDoAtendimento> ListExamesDoAtendimentos { get; set; }
     }
 }

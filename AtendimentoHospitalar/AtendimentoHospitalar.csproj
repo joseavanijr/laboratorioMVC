@@ -110,10 +110,12 @@
     <Compile Include="EntityConfig\PacienteConfiguration.cs" />
     <Compile Include="EntityConfig\PlanoDeSaudeConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Agendamento.cs" />
     <Compile Include="Models\Atendimento.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Models\ExamesDaConsulta.cs" />
     <Compile Include="Models\ExamesDoAtendimento.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace PlanoDeSaude.Model
+namespace AtendimentoHospitalar.Models
 {
     public class Agendamento
     {
-        Paciente objPaciente = new Paciente();
-        private IList<ExamesDaConsulta> listaDeExames;
+        public Agendamento()
+        {
+            AgendamentoId = new Guid();
+            ExamesDaConsultasList = new List<ExamesDaConsulta>();
+        }
+        public Guid AgendamentoId { get; set; }
+        public Guid PacienteId { get; set; }
+        public virtual Paciente Paciente { get; set; }
+        public virtual ICollection<ExamesDaConsulta> ExamesDaConsultasList { get; set; }
     }
 }

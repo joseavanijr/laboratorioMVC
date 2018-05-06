@@ -1,33 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PlanoDeSaude.Model
+namespace AtendimentoHospitalar.Models
 {
     public class ExamesDaConsulta
     {
-        private int id;
-        private DateTime dataDaRealizacaoDoExame;
-        
-        Exame objExame = new Exame();
-        private Agendamento objAgendamento;
-
         public ExamesDaConsulta(Agendamento agen)
         {
-            objAgendamento = agen;
+            ExamesDaConsultaId = new Guid();
+            this.Agendamento = agen;
         }
 
-        public int Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        public DateTime DataDaRealizacaoDoExame
-        {
-            get { return dataDaRealizacaoDoExame; }
-            set { dataDaRealizacaoDoExame = value; }
-        }
+        public Guid ExamesDaConsultaId { get; set; }
+        public DateTime DataRealizacaoExame { get; set; }
+        public Guid ExameId { get; set; }
+        public virtual Exame Exame { get; set; }
+        public Guid AgendamentoId { get; set; }
+        public virtual Agendamento Agendamento { get; set; }
     }
 }

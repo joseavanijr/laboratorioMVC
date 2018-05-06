@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,22 +9,28 @@ namespace AtendimentoHospitalar.Models
 {
     public class Cidade
     {
-        [Display(Name = "Cidade")]
-        public int CidadeId { get; set; }
-        public string Nome{ get; set; }
-        public Estado Estado{ get; set; }
+        public Cidade()
+        {
+            CidadeId = new Guid();
+            ListPacientes = new List<Paciente>();
+        }
+        public Guid CidadeId { get; set; }
+        public string Nome { get; set; }
+        public Estado Estado { get; set; }
+        public virtual ICollection<Paciente> ListPacientes { get; set; }
+
 
         public void Salvar()
         {
             CidadeRepository cRepository = new CidadeRepository();
-            if (CidadeId!=0)
-            {
-                cRepository.Update(this);
-            }
-            else
-            {
-                cRepository.Gravar(this);
-            }
+            //if (CidadeId!=0)
+            //{
+            //    cRepository.Update(this);
+            //}
+            //else
+            //{
+            //    cRepository.Gravar(this);
+            //}
         }
         public void Apagar()
         {

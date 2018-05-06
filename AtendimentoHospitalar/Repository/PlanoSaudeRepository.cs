@@ -25,7 +25,7 @@ namespace AtendimentoHospitalar.Repository
             if (dr.HasRows)
             {
                 dr.Read();
-                //plano.PlanoDeSaudeId = (int)dr["planoDeSaudeId"];
+                plano.PlanoDeSaudeId = new Guid(dr["planoDeSaudeId"].ToString());
                 plano.Descricao = (string)dr["descricao"];
             }
             else
@@ -49,7 +49,7 @@ namespace AtendimentoHospitalar.Repository
                 while (dr.Read())
                 {
                     PlanoDeSaude plano = new PlanoDeSaude();
-                    //plano.Id = (int) dr["planoDeSaudeId"];
+                    plano.PlanoDeSaudeId = new Guid(dr["planoDeSaudeId"].ToString());
                     plano.Descricao = (string) dr["descricao"];
                     listaDePlano.Add(plano);
                 }

@@ -58,9 +58,9 @@ namespace AtendimentoHospitalar.Repository
             {
                 dr.Read();
 
-                //objCidade.CidadeId = Convert.ToInt32(dr["cidadeId"]);
+                objCidade.CidadeId = new Guid(dr["cidadeID"].ToString());
                 objCidade.Nome = dr["nome"].ToString();
-                //objCidade.Estado =(Estado)Enum.Parse((typeof(Estado)), dr["estado"].ToString());
+                objCidade.Estado = (Estado)Enum.Parse((typeof(Estado)), dr["estado"].ToString());
                 objCidade.Estado = (Estado)dr["estado"];
             }
             else
@@ -89,7 +89,7 @@ namespace AtendimentoHospitalar.Repository
                 while (dr.Read())
                 {
                     Cidade objCidade = new Cidade();
-                    //objCidade.CidadeId = Convert.To(dr["cidadeID"]);
+                    objCidade.CidadeId = new Guid(dr["cidadeID"].ToString());
                     objCidade.Nome = dr["nome"].ToString();
                     objCidade.Estado = (Estado)Enum.Parse((typeof(Estado)), dr["estado"].ToString());
                    
@@ -122,7 +122,7 @@ namespace AtendimentoHospitalar.Repository
                 while (dr.Read())
                 {
                     Cidade objCidade = new Cidade();
-                    //objCidade.CidadeId = Convert.ToInt32(dr["cidadeID"]);
+                    objCidade.CidadeId = new Guid(dr["cidadeID"].ToString());
                     objCidade.Nome = dr["nome"].ToString();
                     objCidade.Estado = (Estado) dr["estado"];
 

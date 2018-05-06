@@ -64,7 +64,7 @@ namespace AtendimentoHospitalar.Repository
             {
                 dr.Read();
 
-                //paciente.Id = (int)dr["pacienteId"];
+                paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                 paciente.Nome = (string)dr["nome"];
                 paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);                
                 paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof (TipoConveniado),dr["tipoConveniado"].ToString());
@@ -95,7 +95,7 @@ namespace AtendimentoHospitalar.Repository
                 {
                     Paciente paciente = new Paciente();
 
-                    //paciente.Id = (int)dr["pacienteId"];
+                    paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                     paciente.Nome = (string)dr["nome"];
                     paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
@@ -129,7 +129,7 @@ namespace AtendimentoHospitalar.Repository
                 {
                     Paciente paciente = new Paciente();
 
-                    //paciente.Id = (int)dr["pacienteId"];
+                    paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                     paciente.Nome = (string)dr["nome"];
                     paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
@@ -162,7 +162,7 @@ namespace AtendimentoHospitalar.Repository
                 {
                     Paciente paciente = new Paciente();
 
-                    //paciente.Id = (int)dr["pacienteId"];
+                    paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                     paciente.Nome = (string)dr["nome"];
                     paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());

@@ -21,7 +21,7 @@ namespace AtendimentoHospitalar.EntityConfig
                 .HasColumnType("varchar");
             HasRequired(ea => ea.Atendimento)
                 .WithMany(a => a.ListExamesDoAtendimentos)
-                .HasForeignKey(ea => ea.ExamesDoAtendimentoId);
+                .HasForeignKey(ea => ea.AtendimentoId);
         }
     }
 }

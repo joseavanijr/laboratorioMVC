@@ -18,12 +18,12 @@ namespace AtendimentoHospitalar.Models
         public DateTime DataNascimento { get; set; }
 
         public Guid PlanoDeSaudeId { get; set; }
-        public PlanoDeSaude PlanoDeSaude { get; set; }
+        public virtual PlanoDeSaude PlanoDeSaude { get; set; }
 
         public TipoConveniado EnumTipoConveniado { get; set; }
 
         public Guid CidadeId { get; set; }
-        public Cidade Cidade { get; set; }
+        public virtual Cidade Cidade { get; set; }
 
         public Paciente()
         {

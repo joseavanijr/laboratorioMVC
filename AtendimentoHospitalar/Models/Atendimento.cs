@@ -16,6 +16,6 @@ namespace AtendimentoHospitalar.Models
         public DateTime Data { get; set; }
         public string Status { get; set; }
         public decimal ValorTotal { get; set; }
-        public ICollection<ExamesDoAtendimento> ListExamesDoAtendimentos { get; set; }
+        public virtual ICollection<ExamesDoAtendimento> ListExamesDoAtendimentos { get; set; }
     }
 }

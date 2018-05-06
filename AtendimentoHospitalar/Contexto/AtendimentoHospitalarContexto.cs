@@ -13,9 +13,11 @@ namespace AtendimentoHospitalar.Contexto
                 
         }
 
+        private DbSet<Agendamento> Agendamentos { get; set; }
         private DbSet<Atendimento> Atendimentos { get; set; }
         private DbSet<Cidade> Cidades { get; set; }   
         private DbSet<Exame> Exames { get; set; }
+        private DbSet<ExamesDaConsulta> ExamesDaConsultas { get; set; }
         private DbSet<ExamesDoAtendimento> ExamesDoAtendimento { get; set; }
         private DbSet<Paciente> Pacientes { get; set; }
 

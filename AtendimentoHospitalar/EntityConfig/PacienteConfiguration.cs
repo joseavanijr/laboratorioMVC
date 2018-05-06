@@ -18,6 +18,7 @@ namespace AtendimentoHospitalar.EntityConfig
             //Se fosse chave composta
             //HasKey(c => new { c.PacienteId, c.DataNascimento});
             HasKey(p => p.PacienteId);
+            Property(p => p.PacienteId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p=> p.Nome)
                 .HasMaxLength(20);
             Property(p => p.EnumTipoConveniado)

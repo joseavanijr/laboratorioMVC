@@ -68,7 +68,7 @@ namespace AtendimentoHospitalar.Repository
                 paciente.Nome = (string)dr["nome"];
                 paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);                
                 paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof (TipoConveniado),dr["tipoConveniado"].ToString());
-                paciente.Cidade = new CidadeRepository().Buscar(Convert.ToInt32(dr["cidadeId"]));
+                paciente.Cidade = new CidadeRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
                 paciente.PlanoDeSaude = new PlanoSaudeRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
             }
             else
@@ -99,7 +99,7 @@ namespace AtendimentoHospitalar.Repository
                     paciente.Nome = (string)dr["nome"];
                     paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
-                    paciente.Cidade = new CidadeRepository().Buscar(Convert.ToInt32(dr["cidadeId"]));
+                    paciente.Cidade = new CidadeRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
                     paciente.PlanoDeSaude = new PlanoSaudeRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
 
                     listaPaciente.Add(paciente);
@@ -133,7 +133,7 @@ namespace AtendimentoHospitalar.Repository
                     paciente.Nome = (string)dr["nome"];
                     paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
-                    paciente.Cidade = new CidadeRepository().Buscar(Convert.ToInt32(dr["cidadeId"]));
+                    paciente.Cidade = new CidadeRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
                     paciente.PlanoDeSaude = new PlanoSaudeRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
 
                     listaPaciente.Add(paciente);
@@ -166,7 +166,7 @@ namespace AtendimentoHospitalar.Repository
                     paciente.Nome = (string)dr["nome"];
                     paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
-                    paciente.Cidade = new CidadeRepository().Buscar(Convert.ToInt32(dr["cidadeId"]));
+                    paciente.Cidade = new CidadeRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
                     paciente.PlanoDeSaude = new PlanoSaudeRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
 
                     listaPaciente.Add(paciente);

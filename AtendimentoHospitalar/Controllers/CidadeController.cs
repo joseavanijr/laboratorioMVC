@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using AtendimentoHospitalar.Repository;
 using AtendimentoHospitalar.Models;
@@ -27,7 +28,7 @@ namespace AtendimentoHospitalar.Controllers
             return RedirectToAction("Listar");
         }
 
-        public ActionResult Editar(int id)
+        public ActionResult Editar(Guid id)
         {
             return View(new Cidade().Buscar(id));
         }
@@ -42,7 +43,7 @@ namespace AtendimentoHospitalar.Controllers
             return RedirectToAction("Listar");
         }
 
-        public ActionResult Excluir(int id)
+        public ActionResult Excluir(Guid id)
         {
             return View(new Cidade().Buscar(id));
         }

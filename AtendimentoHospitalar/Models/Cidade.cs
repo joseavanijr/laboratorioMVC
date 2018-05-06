@@ -23,14 +23,14 @@ namespace AtendimentoHospitalar.Models
         public void Salvar()
         {
             CidadeRepository cRepository = new CidadeRepository();
-            //if (CidadeId!=0)
-            //{
-            //    cRepository.Update(this);
-            //}
-            //else
-            //{
-            //    cRepository.Gravar(this);
-            //}
+            if (CidadeId != new Guid())
+            {
+                cRepository.Update(this);
+            }
+            else
+            {
+                cRepository.Gravar(this);
+            }
         }
         public void Apagar()
         {
@@ -44,7 +44,7 @@ namespace AtendimentoHospitalar.Models
         {
             return new CidadeRepository().BuscarPorEstado(estado);
         }
-        public Cidade Buscar(int id)
+        public Cidade Buscar(Guid id)
         {
             return new CidadeRepository().Buscar(id);
         }

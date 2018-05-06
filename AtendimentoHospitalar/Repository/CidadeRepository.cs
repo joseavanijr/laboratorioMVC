@@ -43,14 +43,14 @@ namespace AtendimentoHospitalar.Repository
             Conexao.Crud(comando);
         }
 
-        public Cidade Buscar(int ID)
+        public Cidade Buscar(Guid id)
         {
             Cidade objCidade = new Cidade();
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
             comando.CommandText = "Select * From Cidades Where cidadeID=@cidadeId";
 
-            comando.Parameters.AddWithValue("@cidadeId", ID);
+            comando.Parameters.AddWithValue("@cidadeId", id);
 
             SqlDataReader dr = Conexao.Selecionar(comando);
 

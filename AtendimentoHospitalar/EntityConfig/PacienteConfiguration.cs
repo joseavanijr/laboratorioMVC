@@ -17,19 +17,19 @@ namespace AtendimentoHospitalar.EntityConfig
             ToTable("Pacientes");
             //Se fosse chave composta
             //HasKey(c => new { c.PacienteId, c.DataNascimento});
-            HasKey(c => c.PacienteId);
-            Property(c => c.Nome)
+            HasKey(p => p.PacienteId);
+            Property(p=> p.Nome)
                 .HasColumnType("varchar")
                 .HasMaxLength(20);
-            Property(c => c.EnumTipoConveniado)
+            Property(p => p.EnumTipoConveniado)
                 .HasColumnName("tipoConveniado")
                 .IsRequired()
                 .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute()));
                 //.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() { IsUnique = true}));
             Property(c => c.DataNascimento)
                 .IsRequired();
-            HasRequired(c => c.PlanoDeSaude)
-                .WithMany(p=>p.ListPacientes)
+            HasRequired(p => p.PlanoDeSaude)
+                .WithMany(pl=>pl.ListPacientes)
                 .HasForeignKey(p=>p.PlanoDeSaudeId);
         }
     }

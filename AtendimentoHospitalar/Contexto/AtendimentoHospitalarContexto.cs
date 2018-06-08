@@ -13,13 +13,13 @@ namespace AtendimentoHospitalar.Contexto
                 
         }
 
-        private DbSet<Agendamento> Agendamentos { get; set; }
-        private DbSet<Atendimento> Atendimentos { get; set; }
-        private DbSet<Cidade> Cidades { get; set; }   
-        private DbSet<Exame> Exames { get; set; }
-        private DbSet<ExamesDaConsulta> ExamesDaConsultas { get; set; }
-        private DbSet<ExamesDoAtendimento> ExamesDoAtendimento { get; set; }
-        private DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<Agendamento> Agendamentos { get; set; }
+        public DbSet<Atendimento> Atendimentos { get; set; }
+        public DbSet<Cidade> Cidades { get; set; }
+        public DbSet<Exame> Exames { get; set; }
+        public DbSet<ExamesDaConsulta> ExamesDaConsultas { get; set; }
+        public DbSet<ExamesDoAtendimento> ExamesDoAtendimento { get; set; }
+        public DbSet<Paciente> Pacientes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

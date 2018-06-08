@@ -18,16 +18,18 @@ namespace AtendimentoHospitalar.EntityConfig
             //Se fosse chave composta
             //HasKey(c => new { c.PacienteId, c.DataNascimento});
             HasKey(p => p.PacienteId);
+            //AUTO-INCREMENTO
             Property(p => p.PacienteId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p=> p.Nome)
                 .HasMaxLength(20);
             Property(p => p.EnumTipoConveniado)
-                .HasColumnName("tipoConveniado")
+                .HasColumnName("TipoConveniado")
                 .IsRequired()
                 .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute()));
                 //.HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute() { IsUnique = true}));
             Property(c => c.DataNascimento)
-                .IsRequired();
+                .IsRequired()
+                .HasColumnType("date");
             HasRequired(p => p.PlanoDeSaude)
                 .WithMany(pl=>pl.ListPacientes)
                 .HasForeignKey(p=>p.PlanoDeSaudeId);

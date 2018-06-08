@@ -18,10 +18,11 @@ namespace AtendimentoHospitalar.Repository
         {
             var cidadeBanco = Db.Cidades.FirstOrDefault(c => c.CidadeId == cidade.CidadeId);
             Db.Entry(cidadeBanco).CurrentValues.SetValues(cidade);
+            Db.SaveChanges();
         }
         public void Delete(Cidade cidade)
         {
-            
+            Delete(cidade.CidadeId);
         }
         public void Delete(Guid cidadeId)
         {

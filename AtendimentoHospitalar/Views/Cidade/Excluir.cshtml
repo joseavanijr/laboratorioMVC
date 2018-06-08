@@ -41,16 +41,18 @@
             <a type="submit" value="Delete" class="btn btn-danger">
                 <span class="glyphicon glyphicon-search"></span> 
             </a>
-            <input type="submit" value="Delete" class="btn btn-danger" /> |
+             |
             @Html.ActionLink("Back to List", "Index", new { @class = "btn icon-prev" })
         </div>*@
 
     <div class="form-actions no-color">
-        <a type="submit" value="Delete" class="btn btn-danger">
+        @*<a type="submit" value="Delete" class="btn btn-danger">
             <span class="glyphicon glyphicon-trash"></span>
-        </a>
-
-       @* @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default glyphicon glyphicon-plus" })*@
+        </a>*@
+        <button type="submit" value="Delete" class="btn btn-danger">
+            <span class="glyphicon glyphicon-trash"></span>            
+        </button>
+    @*@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default glyphicon glyphicon-plus" })*@
     </div>
     }
 </div>

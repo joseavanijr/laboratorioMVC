@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
-using AtendimentoHospitalar.Repository;
+using AtendimentoHospitalar.Repository.ADO;
 
 namespace AtendimentoHospitalar.Models
 {
@@ -23,7 +23,7 @@ namespace AtendimentoHospitalar.Models
 
         public IList<PlanoDeSaude> Buscar()
         {
-            return new PlanoSaudeRepository().BuscarTodos();
+            return new PlanoSaudeAdoRepository().BuscarTodos();
         } 
     }
 }

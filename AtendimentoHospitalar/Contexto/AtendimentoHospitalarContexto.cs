@@ -17,9 +17,10 @@ namespace AtendimentoHospitalar.Contexto
         public DbSet<Atendimento> Atendimentos { get; set; }
         public DbSet<Cidade> Cidades { get; set; }
         public DbSet<Exame> Exames { get; set; }
-        public DbSet<ExamesDaConsulta> ExamesDaConsultas { get; set; }
+        public DbSet<ExamesDaConsulta> ExamesDaConsulta { get; set; }
         public DbSet<ExamesDoAtendimento> ExamesDoAtendimento { get; set; }
         public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<PlanoDeSaude> PlanosDeSaude { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

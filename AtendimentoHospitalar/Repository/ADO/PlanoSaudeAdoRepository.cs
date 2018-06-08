@@ -1,15 +1,12 @@
-﻿using System.Web.UI.WebControls;
-using AtendimentoHospitalar.Models;
+﻿using AtendimentoHospitalar.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Data;
 
-namespace AtendimentoHospitalar.Repository
+namespace AtendimentoHospitalar.Repository.ADO
 {
-    public class PlanoSaudeRepository
+    public class PlanoSaudeAdoRepository
     {
         public PlanoDeSaude BuscarPorId(int id)
         {

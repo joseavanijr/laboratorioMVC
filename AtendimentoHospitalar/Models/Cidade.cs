@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using AtendimentoHospitalar.Repository;
+using AtendimentoHospitalar.Service;
 
 namespace AtendimentoHospitalar.Models
 {
@@ -22,31 +22,31 @@ namespace AtendimentoHospitalar.Models
 
         public void Salvar()
         {
-            CidadeRepository cRepository = new CidadeRepository();
+            CidadeService cSerciveService = new CidadeService();
             if (CidadeId != new Guid())
             {
-                cRepository.Update(this);
+                cSerciveService.Update(this);
             }
             else
             {
-                cRepository.Gravar(this);
+                cSerciveService.Save(this);
             }
         }
         public void Apagar()
         {
-            new CidadeRepository().Apagar(this);
+            new CidadeService().Delete(this);
         }
         public IList<Cidade> Buscar()
         {
-            return new CidadeRepository().BuscarTodas();
+            return new CidadeService().FindAll();
         }
         public IList<Cidade> Buscar(Estado estado)
         {
-            return new CidadeRepository().BuscarPorEstado(estado);
+            return new CidadeService().FindByEstado(estado);
         }
         public Cidade Buscar(Guid id)
         {
-            return new CidadeRepository().Buscar(id);
+            return new CidadeService().FindById(id);
         }
     }
 }

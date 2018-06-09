@@ -47,7 +47,7 @@ namespace AtendimentoHospitalar.Repository
 
         public void Dispose()
         {
-            //Context.Dispose();
+            Db.Dispose();
             GC.SuppressFinalize(this);
         }
     }

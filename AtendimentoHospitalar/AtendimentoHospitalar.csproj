@@ -132,9 +132,23 @@
     <Compile Include="Repository\ADO\Conexao.cs" />
     <Compile Include="Repository\ADO\PacienteAdoRepository.cs" />
     <Compile Include="Repository\ADO\PlanoSaudeAdoRepository.cs" />
+    <Compile Include="Repository\AgendamentoRepository.cs" />
+    <Compile Include="Repository\AtendimentoRepository.cs" />
     <Compile Include="Repository\CidadeRepository.cs" />
+    <Compile Include="Repository\ExameDaConsultaRepository.cs" />
+    <Compile Include="Repository\ExameDoAtendimentoRepository.cs" />
+    <Compile Include="Repository\ExameRepository.cs" />
+    <Compile Include="Repository\PacienteRepository.cs" />
+    <Compile Include="Repository\PlanoDeSaudeRepository.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Service\AgendamentoService.cs" />
+    <Compile Include="Service\AtendimentoService.cs" />
     <Compile Include="Service\CidadeService.cs" />
+    <Compile Include="Service\ExameDaConsultaService.cs" />
+    <Compile Include="Service\ExameDoAtendimentoService.cs" />
+    <Compile Include="Service\ExameService.cs" />
+    <Compile Include="Service\PacienteService.cs" />
+    <Compile Include="Service\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

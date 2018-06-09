@@ -11,7 +11,7 @@ namespace AtendimentoHospitalar.Repository
     public class RepositoryBase<TEntity>: IDisposable where TEntity: class
     {
         public readonly AtendimentoHospitalarContexto Db = new AtendimentoHospitalarContexto();
-
+        
         public void Add(TEntity obj)
         {
             Db.Set<TEntity>().Add(obj);

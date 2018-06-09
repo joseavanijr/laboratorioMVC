@@ -133,6 +133,7 @@
     <Compile Include="Repository\ADO\PacienteAdoRepository.cs" />
     <Compile Include="Repository\ADO\PlanoSaudeAdoRepository.cs" />
     <Compile Include="Repository\CidadeRepository.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Service\CidadeService.cs" />
   </ItemGroup>
   <ItemGroup>

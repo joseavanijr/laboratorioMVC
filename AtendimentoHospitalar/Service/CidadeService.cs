@@ -13,7 +13,7 @@ namespace AtendimentoHospitalar.Service
 
         public void Save(Cidade cidade)
         {
-            cidadeRepository.Insert(cidade);            
+            cidadeRepository.Add(cidade);            
         }
         public void Update(Cidade cidade)
         {
@@ -21,7 +21,7 @@ namespace AtendimentoHospitalar.Service
         }
         public void Delete(Cidade cidade)
         {
-            cidadeRepository.Delete(cidade);
+            cidadeRepository.Remove(cidade);
         }
         public Cidade FindById(Guid id)
         {

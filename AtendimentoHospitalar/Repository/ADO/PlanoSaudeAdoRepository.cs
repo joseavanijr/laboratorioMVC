@@ -14,7 +14,7 @@ namespace AtendimentoHospitalar.Repository.ADO
             
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "SELECT * FROM PlanoDeSaude WHERE planoDeSaudeId=@planoId";
+            comando.CommandText = "SELECT * FROM PlanosDeSaude WHERE planoDeSaudeId=@planoId";
             comando.Parameters.AddWithValue("@planoId",id);
 
             SqlDataReader dr = Conexao.Selecionar(comando);
@@ -37,7 +37,7 @@ namespace AtendimentoHospitalar.Repository.ADO
 
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "SELECT * FROM PlanoDeSaude";
+            comando.CommandText = "SELECT * FROM PlanosDeSaude";
 
             SqlDataReader dr = Conexao.Selecionar(comando);
 

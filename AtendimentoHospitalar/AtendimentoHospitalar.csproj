@@ -148,6 +148,7 @@
     <Compile Include="Service\ExameDoAtendimentoService.cs" />
     <Compile Include="Service\ExameService.cs" />
     <Compile Include="Service\PacienteService.cs" />
+    <Compile Include="Service\PlanoDeSaudeService.cs" />
     <Compile Include="Service\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>

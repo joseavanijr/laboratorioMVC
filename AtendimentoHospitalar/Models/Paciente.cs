@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using AtendimentoHospitalar.Repository.ADO;
+using AtendimentoHospitalar.Service;
 
 namespace AtendimentoHospitalar.Models
 {
@@ -33,39 +33,32 @@ namespace AtendimentoHospitalar.Models
         }
         public void Save()
         {
-            PacienteAdoRepository pr = new PacienteAdoRepository();
+            PacienteService ps = new PacienteService();
             ValidarGravacao();
-            //if (Id == 0)
-            //{
-            //    pr.Inserir(this);
-            //}
-            //else
-            //{
-            //    pr.Update(this);
-            //}
+            ps.Save(this);
         }
 
         public void Delete()
         {
             ValidarExclusao();
-            new PacienteAdoRepository().Delete(this);
+            new PacienteService().Delete(this);
         }
 
-        public Paciente FindById(int id)
+        public Paciente FindById(Guid id)
         {
-            return new PacienteAdoRepository().BuscarPorId(id);
+            return new PacienteService().GetById(id);
         }
-        public IList<Paciente> FindByName(string nome)
+        public IEnumerable<Paciente> FindByName(string nome)
         {
-            return new PacienteAdoRepository().BuscarPorNome(nome);
+            return new PacienteService().GetByName(nome);
         }
-        public IList<Paciente> FindByPlano(int planoId)
+        public IEnumerable<Paciente> FindByPlano(Guid planoId)
         {
-            return new PacienteAdoRepository().BuscarPorPlano(planoId);
+            return new PacienteService().GetByPlano(planoId);
         }
-        public IList<Paciente> FindAll()
+        public IEnumerable<Paciente> FindAll()
         {
-            return new PacienteAdoRepository().BuscarTodos();
+            return new PacienteService().GetAll();
         }
         public void ValidarExclusao()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Web;
@@ -8,14 +9,21 @@ using AtendimentoHospitalar.Contexto;
 
 namespace AtendimentoHospitalar.Repository
 {
-    public class RepositoryBase<TEntity>: IDisposable where TEntity: class
+    public class RepositoryBase<TEntity> : IDisposable where TEntity : class
     {
         public readonly AtendimentoHospitalarContexto Db = new AtendimentoHospitalarContexto();
-        
+
         public void Add(TEntity obj)
         {
-            Db.Set<TEntity>().Add(obj);
-            Db.SaveChanges();
+            try
+            {
+                Db.Set<TEntity>().Add(obj);
+                Db.SaveChanges();
+            }
+            catch (DbEntityValidationException erro)
+            {  
+            }
+            
         }
 
         public void Update(TEntity obj)

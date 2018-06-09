@@ -1,4 +1,5 @@
-﻿using AtendimentoHospitalar.Models;
+﻿using System;
+using AtendimentoHospitalar.Models;
 using AtendimentoHospitalar.Repository;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -9,14 +10,14 @@ namespace AtendimentoHospitalar.Controllers
     {
         public ActionResult Listar()
         {
-            IList<Paciente> listaPacientes = new Paciente().FindAll();
+            IEnumerable<Paciente> listaPacientes = new Paciente().FindAll();
 
             return View(listaPacientes);
         }
 
         public ActionResult Novo()
         {
-            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
+            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
             return View();
         }
 
@@ -30,12 +31,16 @@ namespace AtendimentoHospitalar.Controllers
 
         [HttpPost]
         public ActionResult Novo(Paciente paciente)
-        {      
-            paciente.Save();
-            return RedirectToAction("Listar");
+        {
+            if (ModelState.IsValid)
+            {
+                paciente.Save();
+                return RedirectToAction("Listar");
+            }
+            return View(paciente);
         }
 
-        public ActionResult Editar(int id)
+        public ActionResult Editar(Guid id)
         {
             ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
             Paciente p = new Paciente().FindById(id);
@@ -53,9 +58,9 @@ namespace AtendimentoHospitalar.Controllers
             ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
             return View();
         }
-        public ActionResult ListarPorPlanoResult(int planoId)
+        public ActionResult ListarPorPlanoResult(Guid planoId)
         {
-            IList<Paciente> pacientes = new Paciente().FindByPlano(planoId);
+            IEnumerable<Paciente> pacientes = new Paciente().FindByPlano(planoId);
             return PartialView("_ListarPacientes", pacientes);
         }
 
@@ -65,7 +70,7 @@ namespace AtendimentoHospitalar.Controllers
         }
         public ActionResult ListarPorNomeResult(string nome)
         {
-            IList<Paciente> planos = new Paciente().FindByName(nome);
+            IEnumerable<Paciente> planos = new Paciente().FindByName(nome);
             return PartialView("_ListarPacientes", planos);
         }
     }

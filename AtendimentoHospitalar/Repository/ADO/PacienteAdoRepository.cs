@@ -110,7 +110,7 @@ namespace AtendimentoHospitalar.Repository.ADO
             return listaPaciente;
         }
 
-        public IList<Paciente> BuscarPorPlano(int planoId)
+        public IList<Paciente> BuscarPorPlano(Guid planoId)
         {
             IList<Paciente> listaPaciente = new List<Paciente>();
 

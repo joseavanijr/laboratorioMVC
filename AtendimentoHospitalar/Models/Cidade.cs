@@ -12,7 +12,6 @@ namespace AtendimentoHospitalar.Models
         public Cidade()
         {
             CidadeId = new Guid();
-            ListPacientes = new List<Paciente>();
         }
         public Guid CidadeId { get; set; }
         public string Nome { get; set; }

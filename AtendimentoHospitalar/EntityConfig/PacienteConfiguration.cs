@@ -21,7 +21,7 @@ namespace AtendimentoHospitalar.EntityConfig
             //AUTO-INCREMENTO
             Property(p => p.PacienteId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(p=> p.Nome)
-                .HasMaxLength(20);
+                .HasMaxLength(50);
             Property(p => p.EnumTipoConveniado)
                 .HasColumnName("TipoConveniado")
                 .IsRequired()
@@ -30,9 +30,9 @@ namespace AtendimentoHospitalar.EntityConfig
             Property(c => c.DataNascimento)
                 .IsRequired()
                 .HasColumnType("date");
-            HasRequired(p => p.PlanoDeSaude)
-                .WithMany(pl=>pl.ListPacientes)
-                .HasForeignKey(p=>p.PlanoDeSaudeId);
+            //HasRequired(p => p.PlanoDeSaude)
+            //    .WithMany()
+            //    .HasForeignKey(p => p.PlanoDeSaudeId);
         }
     }
 }

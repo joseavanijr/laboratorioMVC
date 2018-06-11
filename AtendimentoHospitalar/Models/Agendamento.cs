@@ -7,8 +7,7 @@ namespace AtendimentoHospitalar.Models
     {
         public Agendamento()
         {
-            AgendamentoId = new Guid();
-            ExamesDaConsultasList = new List<ExamesDaConsulta>();
+            AgendamentoId = Guid.NewGuid();
         }
         public Guid AgendamentoId { get; set; }
         public Guid PacienteId { get; set; }

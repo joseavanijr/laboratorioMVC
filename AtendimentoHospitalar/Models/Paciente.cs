@@ -12,24 +12,18 @@ namespace AtendimentoHospitalar.Models
     public class Paciente
     {
         public Guid PacienteId { get; set; }
-
         public string Nome { get; set; }
-
         public DateTime DataNascimento { get; set; }
 
+        public TipoConveniado EnumTipoConveniado { get; set; }
         public Guid PlanoDeSaudeId { get; set; }
         public virtual PlanoDeSaude PlanoDeSaude { get; set; }
-
-        public TipoConveniado EnumTipoConveniado { get; set; }
-
         public Guid CidadeId { get; set; }
         public virtual Cidade Cidade { get; set; }
 
         public Paciente()
         {
-            PacienteId = new Guid();
-            Cidade = new Cidade();
-            PlanoDeSaude = new PlanoDeSaude();
+            PacienteId = Guid.NewGuid();
         }
         public void Save()
         {
@@ -37,13 +31,11 @@ namespace AtendimentoHospitalar.Models
             ValidarGravacao();
             ps.Save(this);
         }
-
         public void Delete()
         {
             ValidarExclusao();
             new PacienteService().Delete(this);
         }
-
         public Paciente FindById(Guid id)
         {
             return new PacienteService().GetById(id);
@@ -66,7 +58,7 @@ namespace AtendimentoHospitalar.Models
         }
         public void ValidarGravacao()
         {
-            if (PlanoDeSaude.PlanoDeSaudeId == null)
+            if (PlanoDeSaudeId == null)
                 throw new Exception("Informe o plano de saúde");
         }
     }

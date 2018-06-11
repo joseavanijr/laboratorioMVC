@@ -4,10 +4,10 @@ namespace AtendimentoHospitalar.Models
 {
     public class ExamesDaConsulta
     {
-        public ExamesDaConsulta(Agendamento agen)
+        public ExamesDaConsulta(Agendamento agendamento)
         {
             ExamesDaConsultaId = new Guid();
-            this.Agendamento = agen;
+            this.Agendamento = agendamento;
         }
 
         public Guid ExamesDaConsultaId { get; set; }

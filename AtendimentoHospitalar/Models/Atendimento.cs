@@ -9,8 +9,7 @@ namespace AtendimentoHospitalar.Models
     {
         public Atendimento()
         {
-            AtendimentoId = new Guid();
-            ListExamesDoAtendimentos = new List<ExamesDoAtendimento>();
+            AtendimentoId = Guid.NewGuid();
         }
         public Guid AtendimentoId { get; set; }
         public DateTime Data { get; set; }

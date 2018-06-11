@@ -17,7 +17,7 @@ namespace AtendimentoHospitalar.Controllers
 
         public ActionResult Novo()
         {
-            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
+            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
             return View();
         }
 
@@ -42,7 +42,7 @@ namespace AtendimentoHospitalar.Controllers
 
         public ActionResult Editar(Guid id)
         {
-            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
+            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
             Paciente p = new Paciente().FindById(id);
             return View(p);
         }

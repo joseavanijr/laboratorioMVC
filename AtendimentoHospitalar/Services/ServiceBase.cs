@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using AtendimentoHospitalar.Repository;
+using AtendimentoHospitalar.Repositories;
 
-namespace AtendimentoHospitalar.Service
+namespace AtendimentoHospitalar.Services
 {
     public class ServiceBase<TEntity>: IDisposable where TEntity : class
     {
@@ -19,6 +19,10 @@ namespace AtendimentoHospitalar.Service
         public void Delete(TEntity objEntity)
         {
             repositoryBase.Remove(objEntity);
+        }
+        public void Delete(Guid id)
+        {
+            repositoryBase.Remove(id);
         }
         public TEntity GetById(Guid id)
         {

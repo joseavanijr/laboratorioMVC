@@ -1,5 +1,4 @@
-﻿
-namespace AtendimentoHospitalar.Models
+﻿namespace AtendimentoHospitalar.Models
 {
     public enum Estado
     {

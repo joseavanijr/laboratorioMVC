@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using AtendimentoHospitalar.Repository.ADO;
+using AtendimentoHospitalar.Services;
 
 namespace AtendimentoHospitalar.Models
 {
@@ -17,9 +14,9 @@ namespace AtendimentoHospitalar.Models
         {
             PlanoDeSaudeId = Guid.NewGuid();
         }
-        public IList<PlanoDeSaude> Buscar()
+        public IEnumerable<PlanoDeSaude> Buscar()
         {
-            return new PlanoSaudeAdoRepository().BuscarTodos();
+            return new PlanoDeSaudeService().GetAll();
         } 
     }
 }

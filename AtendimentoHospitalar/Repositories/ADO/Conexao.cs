@@ -1,8 +1,8 @@
-﻿using System.Data.SqlClient;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 
-namespace AtendimentoHospitalar.Repository.ADO
+namespace AtendimentoHospitalar.Repositories.ADO
 {
     public class Conexao
     {

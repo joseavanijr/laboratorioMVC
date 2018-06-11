@@ -1,9 +1,6 @@
-﻿
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using AtendimentoHospitalar.Service;
+using AtendimentoHospitalar.Services;
 
 namespace AtendimentoHospitalar.Models
 {
@@ -33,19 +30,19 @@ namespace AtendimentoHospitalar.Models
         }
         public void Apagar()
         {
-            new CidadeService().Delete(this);
+            new CidadeService().Delete(this.CidadeId);
         }
         public IList<Cidade> Buscar()
         {
-            return new CidadeService().FindAll();
+            return new CidadeService().FindAllReadOnly();
         }
         public IList<Cidade> Buscar(Estado estado)
         {
-            return new CidadeService().FindByEstado(estado);
+            return new CidadeService().FindByEstadoReadOnly(estado);
         }
         public Cidade Buscar(Guid id)
         {
-            return new CidadeService().FindById(id);
+            return new CidadeService().GetById(id);
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using AtendimentoHospitalar.Models;
-using AtendimentoHospitalar.Repository.ADO;
+using AtendimentoHospitalar.Repositories.ADO;
 
-namespace AtendimentoHospitalar.Service
+namespace AtendimentoHospitalar.Services
 {
     public class PacienteService: ServiceBase<Paciente>
     {

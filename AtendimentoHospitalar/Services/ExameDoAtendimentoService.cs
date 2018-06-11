@@ -1,6 +1,6 @@
 ﻿using AtendimentoHospitalar.Models;
 
-namespace AtendimentoHospitalar.Service
+namespace AtendimentoHospitalar.Services
 {
     public class ExameDoAtendimentoService:ServiceBase<ExamesDoAtendimento>
     {

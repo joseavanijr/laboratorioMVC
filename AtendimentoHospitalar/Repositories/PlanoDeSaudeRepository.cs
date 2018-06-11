@@ -1,7 +1,7 @@
 ﻿
 using AtendimentoHospitalar.Models;
 
-namespace AtendimentoHospitalar.Repository
+namespace AtendimentoHospitalar.Repositories
 {
     public class PlanoDeSaudeRepository : RepositoryBase<PlanoDeSaude>
     {

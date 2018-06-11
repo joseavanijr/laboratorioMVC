@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using AtendimentoHospitalar.Contexto;
 using AtendimentoHospitalar.Models;
 
-namespace AtendimentoHospitalar.Repository.ADO
+namespace AtendimentoHospitalar.Repositories.ADO
 {
     public class CidadeAdoRepository
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using AtendimentoHospitalar.Repository;
 using AtendimentoHospitalar.Models;
 
 namespace AtendimentoHospitalar.Controllers

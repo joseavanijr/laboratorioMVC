@@ -1,6 +1,5 @@
 ﻿using System;
 using AtendimentoHospitalar.Models;
-using AtendimentoHospitalar.Repository;
 using System.Collections.Generic;
 using System.Web.Mvc;
 

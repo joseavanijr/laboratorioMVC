@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Web;
 using AtendimentoHospitalar.Contexto;
 
-namespace AtendimentoHospitalar.Repository
+namespace AtendimentoHospitalar.Repositories
 {
     public class RepositoryBase<TEntity> : IDisposable where TEntity : class
     {
@@ -49,6 +47,11 @@ namespace AtendimentoHospitalar.Repository
         {
             Db.Set<TEntity>().Remove(obj);
             Db.SaveChanges();
+        }
+
+        public void Remove(Guid id)
+        {
+            Remove(GetById(id));
         }
 
         public TEntity GetById(Guid id)

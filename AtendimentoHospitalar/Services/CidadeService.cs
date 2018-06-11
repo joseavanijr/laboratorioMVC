@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using AtendimentoHospitalar.Models;
-using AtendimentoHospitalar.Repository.ADO;
+using AtendimentoHospitalar.Repositories.ADO;
 
-namespace AtendimentoHospitalar.Service
+namespace AtendimentoHospitalar.Services
 {
     public class CidadeService: ServiceBase<Cidade>
     {
         private readonly CidadeAdoRepository cidadeAdo = new CidadeAdoRepository();
         
-        public Cidade FindById(Guid id)
+        public Cidade FindByIdReadOnly(Guid id)
         {
             return cidadeAdo.Buscar(id);
         }
-        public IList<Cidade> FindAll()
+        public IList<Cidade> FindAllReadOnly()
         {
             return cidadeAdo.BuscarTodas();
         }        
-        public IList<Cidade> FindByEstado(Estado estado)
+        public IList<Cidade> FindByEstadoReadOnly(Estado estado)
         {
             return cidadeAdo.BuscarPorEstado(estado);
         }

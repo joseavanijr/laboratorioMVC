@@ -1,6 +1,7 @@
 ﻿using System;
 using AtendimentoHospitalar.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace AtendimentoHospitalar.Controllers
@@ -65,7 +66,7 @@ namespace AtendimentoHospitalar.Controllers
         public ActionResult ListarPorPlanoResult(Guid planoId)
         {
             IEnumerable<Paciente> pacientes = new Paciente().FindByPlano(planoId);
-            return PartialView("_ListarPacientes", pacientes);
+            return PartialView("_ListarPacientes", pacientes.ToList());
         }
 
         public ActionResult ListarPorNome(string nome)

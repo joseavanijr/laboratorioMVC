@@ -45,6 +45,10 @@ namespace AtendimentoHospitalar.Repositories
             //var objBanco = GetById(obj);
             //Db.Entry(objBanco).CurrentValues.SetValues(obj);
             //Db.SaveChanges();
+
+            //var entry = Db.Entry(obj);
+            //DbSet.Attach(obj);
+            //entry.State = EntityState.Modified;
         }
 
         public void Remove(TEntity obj)

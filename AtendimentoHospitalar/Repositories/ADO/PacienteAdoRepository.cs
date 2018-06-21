@@ -12,7 +12,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
         {
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "INSERT INTO Paciente(nome, dtNascimento, tipoConveniado, planoDeSaudeId, cidadeId) VALUES(@nome, @dtNascimento, @tipoConveniado, @planoDeSaudeId, @cidadeId)";
+            comando.CommandText = "INSERT INTO Pacientes(nome, DataNascimento, tipoConveniado, planoDeSaudeId, cidadeId) VALUES(@nome, @dtNascimento, @tipoConveniado, @planoDeSaudeId, @cidadeId)";
 
             comando.Parameters.AddWithValue("@nome",paciente.Nome);
             comando.Parameters.AddWithValue("@dtNascimento",paciente.DataNascimento);
@@ -26,7 +26,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
         {
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "UPDATE Paciente SET nome=@nome, dtNascimento=@dtNascimento, tipoConveniado=@tipoConveniado, planoDeSaudeId=@planoDeSaudeId, cidadeId=@cidadeId WHERE pacienteId=@pacienteId";
+            comando.CommandText = "UPDATE Pacientes SET nome=@nome, DataNascimento=@dtNascimento, tipoConveniado=@tipoConveniado, planoDeSaudeId=@planoDeSaudeId, cidadeId=@cidadeId WHERE pacienteId=@pacienteId";
 
             comando.Parameters.AddWithValue("@nome", paciente.Nome);
             comando.Parameters.AddWithValue("@dtNascimento", paciente.DataNascimento);
@@ -41,7 +41,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
         {
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "DELETE FROM Paciente WHERE pacienteId=@pacienteId";
+            comando.CommandText = "DELETE FROM Pacientes WHERE pacienteId=@pacienteId";
 
             comando.Parameters.AddWithValue("@pacienteId", paciente.PacienteId);
             Conexao.Crud(comando);
@@ -53,7 +53,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "SELECT * FROM Paciente WHERE pacienteId=@pacienteId";
+            comando.CommandText = "SELECT * FROM Pacientes WHERE pacienteId=@pacienteId";
             comando.Parameters.AddWithValue("@pacienteId", id);
 
             SqlDataReader dr = Conexao.Selecionar(comando);
@@ -64,10 +64,10 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
                 paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                 paciente.Nome = (string)dr["nome"];
-                paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);                
+                paciente.DataNascimento = Convert.ToDateTime(dr["DataNascimento"]);                
                 paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof (TipoConveniado),dr["tipoConveniado"].ToString());
                 paciente.Cidade = new CidadeAdoRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
-                paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
+                paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId(new Guid(dr["planoDeSaudeId"].ToString()));
             }
             else
             {
@@ -82,7 +82,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "SELECT * FROM Paciente WHERE nome like @nome";
+            comando.CommandText = "SELECT * FROM Pacientes WHERE nome like @nome";
             comando.Parameters.AddWithValue("@nome", string.Format("%{0}%",nome));
 
             SqlDataReader dr = Conexao.Selecionar(comando);
@@ -95,10 +95,10 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
                     paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                     paciente.Nome = (string)dr["nome"];
-                    paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
+                    paciente.DataNascimento = Convert.ToDateTime(dr["DataNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
                     paciente.Cidade = new CidadeAdoRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
-                    paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
+                    paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId(new Guid(dr["planoDeSaudeId"].ToString()));
 
                     listaPaciente.Add(paciente);
                 }
@@ -116,7 +116,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "SELECT * FROM Paciente WHERE planoDeSaudeId=@planoDeSaudeId";
+            comando.CommandText = "SELECT * FROM Pacientes WHERE planoDeSaudeId=@planoDeSaudeId";
             comando.Parameters.AddWithValue("@planoDeSaudeId", planoId);
 
             SqlDataReader dr = Conexao.Selecionar(comando);
@@ -129,10 +129,10 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
                     paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                     paciente.Nome = (string)dr["nome"];
-                    paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
+                    paciente.DataNascimento = Convert.ToDateTime(dr["DataNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
                     paciente.Cidade = new CidadeAdoRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
-                    paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
+                    paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId(new Guid(dr["planoDeSaudeId"].ToString()));
 
                     listaPaciente.Add(paciente);
                 }
@@ -150,7 +150,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
             SqlCommand comando = new SqlCommand();
             comando.CommandType = CommandType.Text;
-            comando.CommandText = "SELECT * FROM Paciente";
+            comando.CommandText = "SELECT * FROM Pacientes";
 
             SqlDataReader dr = Conexao.Selecionar(comando);
 
@@ -162,10 +162,10 @@ namespace AtendimentoHospitalar.Repositories.ADO
 
                     paciente.PacienteId = new Guid(dr["pacienteId"].ToString());
                     paciente.Nome = (string)dr["nome"];
-                    paciente.DataNascimento = Convert.ToDateTime(dr["dtNascimento"]);
+                    paciente.DataNascimento = Convert.ToDateTime(dr["DataNascimento"]);
                     paciente.EnumTipoConveniado = (TipoConveniado)Enum.Parse(typeof(TipoConveniado), dr["tipoConveniado"].ToString());
                     paciente.Cidade = new CidadeAdoRepository().Buscar(new Guid(dr["cidadeId"].ToString()));
-                    paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId((int)dr["planoDeSaudeId"]);
+                    paciente.PlanoDeSaude = new PlanoSaudeAdoRepository().BuscarPorId(new Guid(dr["planoDeSaudeId"].ToString()));
 
                     listaPaciente.Add(paciente);
                 }

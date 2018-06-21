@@ -8,7 +8,7 @@ namespace AtendimentoHospitalar.Repositories.ADO
 {
     public class PlanoSaudeAdoRepository
     {
-        public PlanoDeSaude BuscarPorId(int id)
+        public PlanoDeSaude BuscarPorId(Guid id)
         {
             PlanoDeSaude plano = new PlanoDeSaude();
             

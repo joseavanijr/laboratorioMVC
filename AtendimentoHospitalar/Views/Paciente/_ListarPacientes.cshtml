@@ -10,7 +10,7 @@
                 @Html.DisplayNameFor(model => model.EnumTipoConveniado)
             </th>
             <th>@Html.DisplayNameFor(model => model.DataNascimento)</th>
-            <th>@Html.DisplayNameFor(q => q.ObjPlanoDeSaude)</th>
+            <th>@Html.DisplayNameFor(q => q.PlanoDeSaude)</th>
             <th></th>
         </tr>
     </thead>
@@ -29,11 +29,11 @@
                     @Html.DisplayFor(c => item.DataNascimento)
                 </td>
                 <td>
-                    @Html.DisplayFor(m => item.ObjPlanoDeSaude.Descricao)
+                    @Html.DisplayFor(m => item.PlanoDeSaude.Descricao)
                 </td>
                 <td>
-                    <a class="btn btn-default btn-sm" href="@Url.Action("Editar", "Paciente", new {item.Id})"><i class="glyphicon glyphicon-pencil"></i></a>
-                    <a class="btn btn-default btn-sm" href="@Url.Action("Delete", "Paciente", new {item.Id})"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a class="btn btn-default btn-sm" href="@Url.Action("Editar", "Paciente", new {item.PacienteId})"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a class="btn btn-default btn-sm" href="@Url.Action("Delete", "Paciente", new {item.PacienteId})"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
         }

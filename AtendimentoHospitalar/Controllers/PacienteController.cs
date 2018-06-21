@@ -59,7 +59,7 @@ namespace AtendimentoHospitalar.Controllers
 
         public ActionResult ListarPorPlano()
         {
-            ViewBag.PlanoId = new SelectList(new PlanoDeSaude().Buscar(), "Id", "Descricao");
+            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
             return View();
         }
         public ActionResult ListarPorPlanoResult(Guid planoId)

@@ -25,7 +25,7 @@
             @Html.LabelFor(model => model.PlanoDeSaude, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @* @Html.DropDownList("PlanoDeSaudeId", ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
-                @Html.DropDownList("PlanoDeSaudeId", ViewBag.PlanoDeSaudeId as SelectList, string.Empty, new { @class = "form-control" })
+                @Html.DropDownList("PlanoDeSaudeId", null, string.Empty, new { @class = "form-control" })
                 @*@Html.DropDownListFor(model => model.PlanoDeSaudeId, ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
             </div>
         </div>

@@ -41,15 +41,20 @@ namespace AtendimentoHospitalar.Controllers
 
         public ActionResult Editar(Guid id)
         {
-            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
             Paciente p = new Paciente().FindById(id);
+            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao", p.PlanoDeSaudeId);           
             return View(p);
         }
         [HttpPost]
         public ActionResult Editar(Paciente paciente)
         {
-            paciente.Save();
-            return RedirectToAction("Listar");
+            if (ModelState.IsValid)
+            {
+                paciente.Update();
+                return RedirectToAction("Listar");
+            }
+            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao", paciente.PacienteId);
+            return View(paciente);
         }
 
         public ActionResult ListarPorPlano()

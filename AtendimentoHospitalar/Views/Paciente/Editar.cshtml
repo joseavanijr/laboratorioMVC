@@ -6,7 +6,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.PacienteId)
     <div class="form-horizontal">
         <h4>Novo Paciente</h4>
         <hr />
@@ -24,10 +24,11 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ObjPlanoDeSaude, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PlanoDeSaude, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @* @Html.DropDownList("ObjPlanoDeSaude.Id", ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
-                @Html.DropDownListFor(model => model.ObjPlanoDeSaude.Id, ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })
+                @* @Html.DropDownList("PlanoDeSaudeId", ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
+                @Html.DropDownList("PlanoDeSaudeId", null, string.Empty, new { @class = "form-control" })
+                @*@Html.DropDownListFor(model => model.PlanoDeSaudeId, ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
             </div>
         </div>
 
@@ -41,21 +42,17 @@
 
         @*AQUI TRABALHAREMOS O MODAL*@
         <div class="form-group">
-            @Html.LabelFor(model => model.ObjCidade.CidadeId, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="input-group col-md-4">
-                    @Html.HiddenFor(model => model.ObjCidade.CidadeId)
-                    @Html.TextBoxFor(model => model.ObjCidade.Nome, new { @class = "form-control" })
-                    <span class="input-group-btn">
-                        <a href="#" id="btnBuscarCidade" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </a>
-                    </span>
-                </div>
-                @Html.ValidationMessageFor(model => model.ObjCidade.CidadeId, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CidadeId)
+            @Html.LabelFor(model => model.CidadeId, new { @class = "control-label col-md-2" })
+            <div class="input-group col-md-3">
+                @*@Html.TextBoxFor(model => model.ObjCidade.Estado, new { @class = "control-label col-md-4",@id="est"})*@
+                @Html.TextBox("CidadeNome",@Model.Cidade.Nome, new { @class = "form-control" })
+                <a href="#" id="btnBuscarCidade" class="btn btn-default input-group-addon" data-toggle="modal" data-target="#myModal">
+                    <i class="glyphicon glyphicon-search"></i>
+                </a>
             </div>
+            @Html.ValidationMessageFor(model => model.CidadeId, "", new { @class = "text-danger" })
         </div>
-
         <input type="submit" value="Gravar" class="btn btn-lg btn-success">
     </div>
 
@@ -71,11 +68,10 @@
             </div>
             <div class="modal-body">
 
-                @Html.LabelFor(model => model.ObjCidade.Estado)
-                @Html.EnumDropDownListFor(model => model.ObjCidade.Estado, "Selecione...", new { @class = "form-control" })
+                @Html.LabelFor(model => model.Cidade.Estado)
+                @Html.EnumDropDownListFor(model => model.Cidade.Estado, "Selecione...", new { @class = "form-control" })
 
                 <div class="row" id="cidadeEstado">
-
                 </div>
 
             </div>
@@ -91,17 +87,16 @@
 
 @section Scripts {
     <script>
-        $("#ObjCidade_Estado").on("change", function () {
+        $("#Cidade_Estado").on("change", function () {
             var estadoView = $(this).val();
             $("#cidadeEstado").load('@Url.Action("ListarPorEstadoPraCliente", "Cidade")', { estado: estadoView });
         });
 
         $("#cidadeEstado").on("click", "td a", function () {
-            $("#ObjCidade_CidadeId").val($(this).attr("id"));
-            $("#ObjCidade_Nome").val($(this).attr("data-value"));
+            $("#CidadeId").val($(this).attr("id"));
+            $("#CidadeNome").val($(this).attr("data-value"));
+            //$("#est").val($(this).attr("data-value"));
             $("#myModal").modal("hide");
         });
     </script>
 }
-
-

@@ -26,6 +26,12 @@ namespace AtendimentoHospitalar.Models
             ValidarGravacao();
             ps.Save(this);
         }
+        public void Update()
+        {
+            PacienteService ps = new PacienteService();
+            ValidarGravacao();
+            ps.Update(this);
+        }
         public void Delete()
         {
             ValidarExclusao();

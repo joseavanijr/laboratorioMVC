@@ -37,6 +37,8 @@ namespace AtendimentoHospitalar.Controllers
                 paciente.Save();
                 return RedirectToAction("Listar");
             }
+
+            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao", paciente.PlanoDeSaudeId);
             return View(paciente);
         }
 

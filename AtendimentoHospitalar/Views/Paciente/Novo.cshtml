@@ -24,9 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PlanoDeSaude, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @* @Html.DropDownList("PlanoDeSaudeId", ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
                 @Html.DropDownList("PlanoDeSaudeId", null, string.Empty, new { @class = "form-control" })
-                @*@Html.DropDownListFor(model => model.PlanoDeSaudeId, ViewBag.PlanoId as SelectList, string.Empty, new { @class = "form-control" })*@
             </div>
         </div>
 
@@ -43,7 +41,6 @@
             @Html.HiddenFor(model => model.CidadeId)
             @Html.LabelFor(model => model.CidadeId, new {@class = "control-label col-md-2"})
             <div class="input-group col-md-3">
-                @*@Html.TextBoxFor(model => model.ObjCidade.Estado, new { @class = "control-label col-md-4",@id="est"})*@
                 @Html.TextBoxFor(model => model.Cidade.Nome, new {@class = "form-control"})
                 <a href="#" id="btnBuscarCidade" class="btn btn-default input-group-addon" data-toggle="modal" data-target="#myModal">
                     <i class="glyphicon glyphicon-search"></i>
@@ -64,23 +61,16 @@
                 <h4 class="modal-title">Selecione a cidade</h4>
             </div>
             <div class="modal-body">
-
                 @Html.LabelFor(model => model.Cidade.Estado)
                 @Html.EnumDropDownListFor(model => model.Cidade.Estado, "Selecione...", new { @class = "form-control" })
-
                 <div class="row" id="cidadeEstado">
                 </div>
-
             </div>
             <div class="modal-footer">
-
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 @section Scripts {
     <script>

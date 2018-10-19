@@ -97,7 +97,6 @@
     <Content Include="Migrations\DadosIniciais\Cidades.sql" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Migrations\DadosIniciais\Cidades.csv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -175,6 +174,7 @@
     <Content Include="Views\Cidade\_ListarCidadesNoCLiente.cshtml" />
     <Content Include="Views\Paciente\ListarPorPlano.cshtml" />
     <Content Include="Views\Paciente\_ListarPacientes.cshtml" />
+    <Content Include="Views\Cliente\Criar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

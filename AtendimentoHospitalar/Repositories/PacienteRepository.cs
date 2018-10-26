@@ -11,9 +11,10 @@ namespace AtendimentoHospitalar.Repositories
         {
             return Db.Pacientes.Where(p => p.PlanoDeSaudeId == planoId);
         }
+
         public IEnumerable<Paciente> GetByName(string nome)
         {
-            return Db.Pacientes.Where(p => p.Nome == nome);
+            return Db.Pacientes.Where(p => p.Nome.Contains(nome));
         }
     }
 }

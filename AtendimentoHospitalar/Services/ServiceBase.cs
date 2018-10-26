@@ -6,7 +6,7 @@ namespace AtendimentoHospitalar.Services
 {
     public class ServiceBase<TEntity>: IDisposable where TEntity : class
     {
-        private readonly RepositoryBase<TEntity> repositoryBase = new RepositoryBase<TEntity>();
+        public readonly RepositoryBase<TEntity> repositoryBase = new RepositoryBase<TEntity>();
 
         public void Save(TEntity objEntity)
         {

@@ -14,5 +14,7 @@ namespace AtendimentoHospitalar.Models
         public DateTime Data { get; set; }
         public Guid AtendimentoId { get; set; }
         public virtual Atendimento Atendimento { get; set; }
+        public Guid ExameId { get; set; }
+        public virtual Exame Exame { get; set; }
     }
 }

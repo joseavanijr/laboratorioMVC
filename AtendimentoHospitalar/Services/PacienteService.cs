@@ -12,7 +12,7 @@ namespace AtendimentoHospitalar.Services
         private readonly PacienteRepository pacienteRepository = new PacienteRepository();
 
         public IEnumerable<Paciente> GetByPlano(Guid planoId)
-        {
+        {    
             return pacienteRepository.GetByPlano(planoId);
             //return pacienteAdo.BuscarPorPlano(planoId);
         }

@@ -14,9 +14,5 @@ namespace AtendimentoHospitalar.Models
         {
             PlanoDeSaudeId = Guid.NewGuid();
         }
-        public IEnumerable<PlanoDeSaude> Buscar()
-        {
-            return new PlanoDeSaudeService().GetAll();
-        } 
     }
 }

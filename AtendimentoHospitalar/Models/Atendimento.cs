@@ -16,5 +16,12 @@ namespace AtendimentoHospitalar.Models
         public string Status { get; set; }
         public decimal ValorTotal { get; set; }
         public virtual ICollection<ExamesDoAtendimento> ListExamesDoAtendimentos { get; set; }
+
+        public void AdicionaExame(ExamesDoAtendimento exameDoAtendimento)
+        {
+            if(exameDoAtendimento.Exame == null)
+                throw new Exception("Deve conter Exame");
+            this.ListExamesDoAtendimentos.Add(exameDoAtendimento);
+        }
     }
 }

@@ -20,39 +20,6 @@ namespace AtendimentoHospitalar.Models
         {
             PacienteId = Guid.NewGuid();
         }
-        public void Save()
-        {
-            PacienteService ps = new PacienteService();
-            ValidarGravacao();
-            ps.Save(this);
-        }
-        public void Update()
-        {
-            PacienteService ps = new PacienteService();
-            ValidarGravacao();
-            ps.Update(this);
-        }
-        public void Delete()
-        {
-            ValidarExclusao();
-            new PacienteService().Delete(this);
-        }
-        public Paciente FindById(Guid id)
-        {
-            return new PacienteService().GetById(id);
-        }
-        public IEnumerable<Paciente> FindByName(string nome)
-        {
-            return new PacienteService().GetByName(nome);
-        }
-        public IEnumerable<Paciente> FindByPlano(Guid planoId)
-        {
-            return new PacienteService().GetByPlano(planoId);
-        }
-        public IEnumerable<Paciente> FindAll()
-        {
-            return new PacienteService().GetAll();
-        }
         public void ValidarExclusao()
         {
             throw new Exception("Vou ver pq num exclui");

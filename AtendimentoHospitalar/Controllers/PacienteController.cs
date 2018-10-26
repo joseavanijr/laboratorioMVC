@@ -3,21 +3,25 @@ using AtendimentoHospitalar.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using AtendimentoHospitalar.Services;
 
 namespace AtendimentoHospitalar.Controllers
 {
     public class PacienteController : Controller
     {
+        protected readonly PacienteService pacienteService = new PacienteService(); 
+        protected readonly PlanoDeSaudeService PlanoDeSaudeService = new PlanoDeSaudeService(); 
+                       
         public ActionResult Listar()
         {
-            IEnumerable<Paciente> listaPacientes = new Paciente().FindAll();
+            IEnumerable<Paciente> listaPacientes = pacienteService.GetAll();
 
             return View(listaPacientes);
         }
 
         public ActionResult Novo()
         {
-            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
+            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao");
             return View();
         }
 
@@ -34,18 +38,18 @@ namespace AtendimentoHospitalar.Controllers
         {
             if (ModelState.IsValid)
             {
-                paciente.Save();
+                pacienteService.Save(paciente);
                 return RedirectToAction("Listar");
             }
 
-            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao", paciente.PlanoDeSaudeId);
+            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", paciente.PlanoDeSaudeId);
             return View(paciente);
         }
 
         public ActionResult Editar(Guid id)
         {
-            Paciente p = new Paciente().FindById(id);
-            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao", p.PlanoDeSaudeId);           
+            Paciente p = pacienteService.GetById(id);
+            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", p.PlanoDeSaudeId);           
             return View(p);
         }
         [HttpPost]
@@ -53,21 +57,21 @@ namespace AtendimentoHospitalar.Controllers
         {
             if (ModelState.IsValid)
             {
-                paciente.Update();
+                pacienteService.Update(paciente);
                 return RedirectToAction("Listar");
             }
-            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao", paciente.PacienteId);
+            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", paciente.PacienteId);
             return View(paciente);
         }
 
         public ActionResult ListarPorPlano()
         {
-            ViewBag.PlanoDeSaudeId = new SelectList(new PlanoDeSaude().Buscar(), "PlanoDeSaudeId", "Descricao");
+            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao");
             return View();
         }
         public ActionResult ListarPorPlanoResult(Guid planoId)
         {
-            IEnumerable<Paciente> pacientes = new Paciente().FindByPlano(planoId);
+            IEnumerable<Paciente> pacientes = pacienteService.GetByPlano(planoId);
             return PartialView("_ListarPacientes", pacientes.ToList());
         }
 
@@ -77,7 +81,7 @@ namespace AtendimentoHospitalar.Controllers
         }
         public ActionResult ListarPorNomeResult(string nome)
         {
-            IEnumerable<Paciente> planos = new Paciente().FindByName(nome);
+            IEnumerable<Paciente> planos = pacienteService.GetByName(nome);
             return PartialView("_ListarPacientes", planos);
         }
     }

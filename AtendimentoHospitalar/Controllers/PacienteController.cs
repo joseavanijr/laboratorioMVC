@@ -25,14 +25,6 @@ namespace AtendimentoHospitalar.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Novo(Paciente paciente, int PlanoId)
-        //{
-        //    paciente.ObjPlanoDeSaude.Id = PlanoId;
-        //    pacienteRepository.Inserir(paciente);
-        //    return RedirectToAction("Listar");
-        //}
-
         [HttpPost]
         public ActionResult Novo(Paciente paciente)
         {

@@ -10,7 +10,8 @@ namespace AtendimentoHospitalar.Controllers
     public class PacienteController : Controller
     {
         protected readonly PacienteService pacienteService = new PacienteService(); 
-        protected readonly PlanoDeSaudeService PlanoDeSaudeService = new PlanoDeSaudeService(); 
+        protected readonly PlanoDeSaudeService planoDeSaudeService = new PlanoDeSaudeService(); 
+       
                        
         public ActionResult Listar()
         {
@@ -21,7 +22,7 @@ namespace AtendimentoHospitalar.Controllers
 
         public ActionResult Novo()
         {
-            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao");
+            ViewBag.PlanoDeSaudeId = new SelectList(planoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao");
             return View();
         }
 
@@ -34,14 +35,14 @@ namespace AtendimentoHospitalar.Controllers
                 return RedirectToAction("Listar");
             }
 
-            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", paciente.PlanoDeSaudeId);
+            ViewBag.PlanoDeSaudeId = new SelectList(planoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", paciente.PlanoDeSaudeId);
             return View(paciente);
         }
 
         public ActionResult Editar(Guid id)
         {
             Paciente p = pacienteService.GetById(id);
-            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", p.PlanoDeSaudeId);           
+            ViewBag.PlanoDeSaudeId = new SelectList(planoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", p.PlanoDeSaudeId);           
             return View(p);
         }
         [HttpPost]
@@ -52,13 +53,13 @@ namespace AtendimentoHospitalar.Controllers
                 pacienteService.Update(paciente);
                 return RedirectToAction("Listar");
             }
-            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", paciente.PacienteId);
+            ViewBag.PlanoDeSaudeId = new SelectList(planoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao", paciente.PacienteId);
             return View(paciente);
         }
 
         public ActionResult ListarPorPlano()
         {
-            ViewBag.PlanoDeSaudeId = new SelectList(PlanoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao");
+            ViewBag.PlanoDeSaudeId = new SelectList(planoDeSaudeService.GetAll(), "PlanoDeSaudeId", "Descricao");
             return View();
         }
         public ActionResult ListarPorPlanoResult(Guid planoId)
